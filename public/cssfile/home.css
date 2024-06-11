@@ -1,0 +1,66 @@
+    .navbar-custom {
+      background-color:rgb(240,5,5); /* Bootstrap's red color */
+    }
+    .navbar-custom .navbar-brand,
+    .navbar-custom .nav-link,
+    .navbar-custom .btn {
+      color: #fff;
+    }
+    .navbar-custom .btn-outline-danger {
+      border-color: #fff;
+      color: #fff;
+    }
+    .navbar-custom .btn-outline-danger:hover {
+      background-color: #fff;
+      color: #dc3545;
+    }
+               .get {
+    color: #fff;
+    background: linear-gradient(to right, #FF416C, #FF4B2B); /* Gradient background */
+    border: 2px solid #fff; /* White border */
+    border-radius: 25px; /* Rounded border */
+    padding: 10px 20px; /* Padding */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Cursor style */
+    transition: all 0.3s ease; /* Smooth transition */
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1); /* Box shadow */
+}
+
+.get:hover {
+    background: linear-gradient(to right, #FF4B2B, #FF416C); /* Gradient background on hover */
+    border-color: #FF416C; /* Border color on hover */
+    box-shadow: 0px 6px 10px rgba(255, 69, 108, 0.5); /* Enhanced box shadow on hover */
+}
+
+.get:active {
+    transform: translateY(2px); /* Add slight downward shift when clicked */
+}
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px;
+  background-color:red;  /* Adjust color as needed */
+  border-radius: 50%;
+  font-size: 1.5rem;
+  opacity: 0.7;
+  transition: all 0.3s ease-in-out;
+  z-index: 99;  /* Ensure button stays on top */
+}
+
+.scroll-to-top:hover {
+  opacity: 1;
+}
+
+.img-1
+{
+  width:100%;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.img-1:hover {
+  transform: scale(1.05);
+}

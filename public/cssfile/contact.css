@@ -1,0 +1,48 @@
+    .contact {
+        background-color: #f8f9fa;
+        padding: 50px 0;
+    }
+
+    .contact .container {
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 5px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact .text {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .contact form .form-group label {
+        font-weight: bold;
+    }
+
+    .contact form .form-group input,
+    .contact form .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .contact form .form-group textarea {
+        resize: vertical;
+    }
+
+    .contact form .form-group button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .contact form .form-group button:hover {
+        background-color: #0056b3;
+    }

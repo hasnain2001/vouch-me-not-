@@ -1,0 +1,78 @@
+    /* Custom styles */
+
+            .body{
+    background-color:#fff;
+}
+   
+   
+    .navbar-brand {
+      color: #fff !important;
+      font-weight: bold;
+    }
+    .blog-post {
+      background-color: #fff;
+      margin-bottom: 30px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    .blog-post:hover {
+      transform: translateY(-5px);
+    }
+    .blog-post img {
+      max-width:700px;
+      height:400px;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+    .blog-post .post-content {
+      padding: 20px;
+    }
+    .blog-post .post-content h2 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .blog-post .post-content p {
+      color: #666;
+      margin-bottom: 20px;
+    }
+    .btn-read-more {
+      background-color: #343a40;
+      color: #fff;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .btn-read-more:hover {
+        color:white;
+      background-color: #23272b;
+    }
+    
+    .scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px;
+  background-color:red;  /* Adjust color as needed */
+  border-radius: 50%;
+  font-size: 1.5rem;
+  opacity: 0.7;
+  transition: all 0.3s ease-in-out;
+  z-index: 99;  /* Ensure button stays on top */
+}
+
+.scroll-to-top:hover {
+  opacity: 1;
+}
+
+  .blog-image-wrapper img {
+    height: 400px; /* Set the fixed height */
+    width: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure the image is treated as a block element */
+    margin: 0 auto; /* Center the image horizontally */
+}
+
+    

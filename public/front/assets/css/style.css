@@ -1,0 +1,371 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --font-family: "Poppins", sans-serif;
+    --primary-color: #741fa2;
+}
+.get {
+    color: #fff;
+    background: linear-gradient(to right, #FF416C, #FF4B2B); /* Gradient background */
+    border: 2px solid #fff; /* White border */
+    border-radius: 25px; /* Rounded border */
+    padding: 10px 20px; /* Padding */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Cursor style */
+    transition: all 0.3s ease; /* Smooth transition */
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1); /* Box shadow */
+}
+
+.get:hover {
+    background: linear-gradient(to right, #FF4B2B, #FF416C); /* Gradient background on hover */
+    border-color: #FF416C; /* Border color on hover */
+    box-shadow: 0px 6px 10px rgba(255, 69, 108, 0.5); /* Enhanced box shadow on hover */
+}
+
+.get:active {
+    transform: translateY(2px); /* Add slight downward shift when clicked */
+}
+
+/* Top Header Css Begin */
+.top_header {
+    --tw-bg-opacity: 1;
+    background-color: rgb(93 25 130/var(--tw-bg-opacity));
+    padding: 10px 0px;
+}
+
+.top_header:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(68 17 96/var(--tw-bg-opacity));
+    cursor: pointer;
+}
+
+.top_header .back_img {
+    position: absolute;
+}
+
+@media only screen and (max-width: 1580px) {
+    .back_img {
+        display: none;
+    }
+}
+
+.top_header :nth-child(1) {
+    text-decoration: none;
+}
+
+.top_header_content {
+    position: relative;
+    gap: 20px;
+}
+
+.top_header_content span {
+    color: #fff;
+    font-weight: bold;
+    font-family: var(--font-family);
+}
+
+.top_header_content a {
+    color: #fff;
+    font-weight: 800;
+    font-family: var(--font-family);
+}
+
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    cursor: pointer;
+    border: 2px solid #fff;
+}
+
+/* Top Header Css End */
+
+
+/* Header Css End */
+
+.custom-bg-primary {
+    --tw-bg-opacity: 1;
+    background-color: rgb(116 31 162/var(--tw-bg-opacity));
+}
+
+.navbar {
+    --tw-bg-opacity: 1;
+    background-color: rgb(116 31 162/var(--tw-bg-opacity));
+}
+
+.navbar .nav-item {
+    font-weight: 600;
+    font-family: var(--font-family);
+    font-size: 16px;
+}
+
+.navbar .nav-item .nav-link {
+    padding: 5px 20px;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.navbar .nav-item .nav-link:hover {
+    background-color: hsla(0, 0%, 100%, .1);
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.search_form {
+    width: 19rem;
+    border-radius: 20px;
+    padding: 7px 20px;
+}
+
+.search_form:focus {
+    border: 0px;
+    outline: 0px;
+    box-shadow: none;
+}
+
+/* Header Css End */
+
+
+/* Main Content Css Begin */
+
+main {
+    height: 100%;
+}
+
+.main_content {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.main_content h1 {
+    font-family: var(--font-family);
+    font-weight: 600;
+}
+
+.card-body {
+    padding: 0px;
+    border-radius: 10px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.card-body img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.coupon_card {
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.coupon_card_body span {
+    font-size: 20px;
+    font-family: var(--font-family);
+    font-weight: 600;
+}
+
+.coupon_card_body p {
+    font-family: var(--font-family);
+    margin-top: 5px;
+}
+
+.coupon_card_body a {
+    color: #fff;
+    background-color: var(--primary-color);
+    padding: 7px 14px;
+    border-radius: 50px;
+    border: 1px solid var(--primary-color);
+    text-decoration: none;
+    transition: 0.2s ease-in all;
+}
+
+.coupon_card_body a:hover {
+    color: var(--primary-color);
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    transition: 0.2s ease-out all;
+}
+
+.visit_store_btn {
+    color: #fff;
+    background-color: var(--primary-color);
+    padding: 7px 14px;
+    border-radius: 50px;
+    border: 1px solid var(--primary-color);
+    text-decoration: none;
+    transition: 0.2s ease-in all;
+    width: 100%;
+    text-align: center;
+}
+
+.visit_store_btn:hover {
+    color: var(--primary-color);
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    transition: 0.2s ease-out all;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+    background-color: #972d9b;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+.footer img {
+    width: 26px;
+    position: relative;
+    top: 0px;
+    left: -3px;
+}
+
+.footer a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+.foot_one_content ul {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+.carousel-item img {
+    object-fit: cover;
+}
+
+.stores img {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    margin-bottom: 15px;
+}
+
+.stores {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.stores span {
+    font-size: 22px;
+}
+
+.coupon_card_body a {
+    display: inline-block;
+    width: 10rem;
+}
+
+/* Main Content Css End */
+
+
+/* Footer Css End */
+
+
+footer {
+    background-color: var(--primary-color);
+    bottom: 0;
+    width: 100%;
+    padding: 5rem 0rem 0rem 0rem;
+}
+
+.foot_one_content p {
+    color: #fff;
+    font-size: 17px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.foot_two_content {
+    color: #fff;
+    font-family: var(--font-family);
+}
+
+.foot_two_content h3 {
+    font-family: var(--font-family);
+    font-weight: 600;
+}
+
+.foot_two_content a {
+    color: #fff;
+}
+
+.foot_three_content {
+    color: #fff;
+    font-family: var(--font-family);
+}
+
+.social_icons div {
+    padding: 5px 10px;
+    border-radius: 50px;
+}
+
+.social_icons div:hover {
+    background-color: hsla(0, 0%, 100%, .1);
+}
+
+.copy_right {
+    color: #fff;
+    font-family: var(--font-family);
+    margin-top: 30px;
+    text-align: justify;
+    font-size: 14px;
+}
+
+/* Footer Css End */
+
+/* Media Queries Begin here */
+.visit_store_btn {
+    display: none;
+}
+
+.store_detail_card {
+    display: none;
+}
+
+@media only screen and (max-width: 991px) {
+    .store_detail_description {
+        display: none;
+    }
+
+    .coupon_card_column {
+        margin-bottom: 2rem;
+    }
+
+    .store_detail_card {
+        display: block;
+    }
+
+    .visit_store_btn {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .home_top_stores {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .home_ts_h2 {
+        text-align: center;
+    }
+}
+
+
