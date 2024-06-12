@@ -166,7 +166,7 @@ background-color:rgb(87, 18, 124);
 
       <div class="col-12 col-md-4 order-md-last">
           <aside class="sidebar p-3 bg-light">
-              <h2 class="bold text-dark mb-3">Top Stores</h2>
+              <h2 class="bold text-dark mb-3">latest  Stores</h2>
               <div class="row gx-2 gy-2">
                   @foreach ($chunks as $store)
                       <div class="col-6 col-md-12 col-sm-6 col-lg-6">

@@ -55,10 +55,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-Route::get('/coupon', [HomeController::class, 'index'])->name('coupon');
 
-// Route for store details
-Route::get('/store-details/{name}', [HomeController::class, 'storeDetails'])->name('store.details');
+
 
 
 // Route for search
@@ -66,9 +64,7 @@ Route::get('/search', [SearchController::class, 'search'])->name('search');
 Route::get('/search_results', [SearchController::class, 'searchResults'])->name('search_results');
 
 
-Route::get('/categories', [HomeController::class, 'categories'])->name('categories');
 
-Route::get('/related_category/{title}', [HomeController::class, 'RelatedCategoryStores'])->name('related_category');
 
 
 
@@ -104,7 +100,9 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index');
     Route::get('/stores', 'stores')->name('stores');
     Route::get('/stores/{slug}', 'StoreDetails')->name('store_details');
-    Route::get('/related-category/{title}', 'relatedcategories')->name('related_category');
+    Route::get('/categories', 'relatedcategories')->name('related_category');
+    Route::get('/categories/{slug}', 'relatedcategories')->name('related_category');
+  
   
 });
 
@@ -152,7 +150,7 @@ Route::controller(NetworksController::class)->prefix('admin')->group(function ()
 });
 
 // Coupons Routes Begin
-Route::get('coupons', [CouponsController::class, 'index'])->name('coupons.index');
+
 
 
 Route::controller(CouponsController::class)->prefix('admin')->group(function () {

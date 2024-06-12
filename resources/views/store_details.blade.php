@@ -33,7 +33,7 @@ header("X-Robots-Tag:index, follow");
 <!-- Add this line to your HTML file to include FontAwesome -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 <style>
-body{
+    body{
     margin:0;
     padding:0;
 }
@@ -151,7 +151,7 @@ body{
     
 }
      .logo{
-            width: 150px;
+            width: 250px;
             border-radius: 8px;
             margin-bottom:10px;
         }
@@ -177,8 +177,58 @@ body{
         height: auto;
         object-fit: cover;
     }
+}
 
+.sort {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        text-align: center;
+        text-decoration: none;
+        border: 2px solid transparent;
+        border-radius: 5px;
+        cursor: pointer;
+        color: #fff;
+        background-color: #007bff;
+        transition: background-color 0.3s;
+        margin-right: 10px;
+    }
+
+    .sort:hover {
+        background-color: #0056b3;
+    }
+
+    .sort-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .sort-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+
+    .sort-info {
+        background-color: #17a2b8;
+        border-color: #17a2b8;
+    }
+
+    .sort-info:hover {
+        background-color: #117a8b;
+        border-color: #117a8b;
+    }
+
+    .sort-success {
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+
+    .sort-success:hover {
+        background-color: #218838;
+        border-color: #218838;
+    }
 </style>
+
   </head>
   <body>
       
@@ -198,7 +248,7 @@ body{
               @if ($store->store_image)
               
                   <div class="col-md-2 col-3 mb-3 mb-md-0">
-                      <img src="{{ asset('uploads/stores/' . $store->store_image) }}" class="logo img-fluid" alt="{{ $store->name }}">
+                      <img src="{{ asset('uploads/stores/' . $store->store_image) }}" class="storelogo img-fluid" alt="{{ $store->name }}">
                   </div>
               @else
                   <div class="col-md-2 col-3 text-center mb-3 mb-md-0">
@@ -223,50 +273,76 @@ body{
       </div>
   </div>
   
-  @php
-      $codeCount = 0;
-      $dealCount = 0;
-  @endphp
   <div class="container">
-      <div class="row">
-         
-          <div class="col-md-8">
-              <div class="row row-cols-1 row-cols-md">
-                  @foreach ($coupons as $coupon)
-                  <div class="col mb-6">
-                      <div class=" coupon-card">
-                          <div class="card-body">
-                  <!--            @php-->
-                  <!--    $store = App\Models\Stores::where('name', $coupon->store)->first();-->
-                  <!--@endphp-->
-                  <!--@if ($store && $store->store_image)-->
-                  <!--    <img src="{{ asset('uploads/store/' . $store->store_image) }}" alt="{{ $store->name }} Image" class="storelogo">-->
-                  <!--@else-->
-                  <!--    <span class="no-image-placeholder">No Image Available</span>-->
-                  <!--@endif-->
-                              <h3>{{($coupon->name) }}</h3>
-                              <div class="coupon-row">
-                                  @if ($coupon->code)
-                                  @php $codeCount++; @endphp
-                                  <span id="cpnCode{{ $coupon->id }}" class="cpnCode">{{ $coupon->code }}</span>
-  
-                                  <button class="btn btn-info cpnBtn" id="cpnBtn{{ $coupon->id }}" onclick="copyCouponAndRedirect('{{ $coupon->code }}', '{{ $coupon->destination_url }}')">Copy Code</button>
-                                  @else
-                                  @php $dealCount++; @endphp
-                                  <a href="{{ $coupon->destination_url }}" class="cpndeal text-decoration-none" target="_blank">Get Deal</a>
-  
-                                  @endif
-                              </div>
-                              <p class="card-text">Valid till {{ \Carbon\Carbon::parse($coupon->created_at)->format('d M, Y') }}</p>
-                              <div id="copyMessage{{ $coupon->id }}" class="text-white mt-2" style="display: none;">Code copied successfully!</div>
-                              <div class="circle-1"></div>
-                              <div class="circle-2"></div>
-                          </div>
-                      </div>
-                  </div>
-                  @endforeach
-              </div>
-          </div>
+    <div class="row">
+    
+<div class="col-md-12 mb-3">
+    <a href="{{ route('store_details', ['slug' => str_replace(' ', '-', $store->name), 'sort' => 'all']) }}" class="sort sort-outlie-primary me-2">Show All</a>
+    <a href="{{ route('store_details', ['slug' => str_replace(' ', '-', $store->name), 'sort' => 'codes']) }}" class="sort sort-outline-info me-2">Show Codes</a>
+    <a href="{{ route('store_details', ['slug' => str_replace(' ', '-', $store->name), 'sort' => 'deals']) }}" class="sort sort-outline-success">Show Deals</a>
+</div>
+        
+        
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="row row-cols-1 row-cols-md">
+                @foreach ($coupons as $coupon)
+                <div class="col mb-6">
+                    <div class="coupon-card">
+                        <div class="card-body">
+                            <h3>{{ $coupon->name }}</h3>
+                            <div class="coupon-row">
+                                @if ($coupon->code)
+                                <span id="cpnCode{{ $coupon->id }}" class="cpnCode">{{ $coupon->code }}</span>
+                                <button class="btn btn-info cpnBtn" id="cpnBtn{{ $coupon->id }}" onclick="copyCouponAndRedirect('{{ $coupon->code }}', '{{ $coupon->destination_url }}')">Copy Code</button>
+                                @else
+                                <a href="{{ $coupon->destination_url }}" class="cpndeal text-decoration-none" target="_blank">Get Deal</a>
+                                @endif
+                            </div>
+                            <p class="card-text">Valid till {{ \Carbon\Carbon::parse($coupon->updated_at)->format('d M, Y') }}</p>
+                            <div id="copyMessage{{ $coupon->id }}" class="text-white mt-2" style="display: none;">Code copied successfully!</div>
+                            <div class="circle-1"></div>
+                            <div class="circle-2"></div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+                <div class="totals mt-3 d-none d-lg-block">
+                    <div class="p-3 border rounded" style="background-color: #f8f9fa;">
+                        <div class="row align-items-center">
+                            <div class="col text-start">
+                                <p style="font-size: 1.2em; margin: 0;">
+                                    <i class="fas fa-tag me-2"></i> Codes: 
+                                    <span class="badge bg-primary">{{ $codeCount }}</span>
+                                </p>
+                            </div>
+                         
+                            <div class="col text-end">
+                                <p style="font-size: 1.2em; margin: 0;">
+                                    <i class="fas fa-shopping-cart me-2"></i> Deals: 
+                                    <span class="badge bg-success">{{ $dealCount }}</span>
+                                </p>
+                            </div>
+                               <div class="col text-center">
+                                @php
+                                    $totalCount = $codeCount + $dealCount;
+                                @endphp
+                                <p style="font-size: 1.2em; margin: 0;">
+                                    <i class="fas fa-calculator me-2"></i>Total: 
+                                    <span class="badge bg-info">{{ $totalCount }}</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Totals Section, only visible on desktop -->
+     
+    </div>
+</div>
+
            <div class="col-md-4">
               <aside class="sidebar p-3 bg-light">
                   <!-- Sidebar Title -->
@@ -289,41 +365,14 @@ body{
       </div>
   </div>
               <!-- Totals Section, only visible on desktop -->
-  <div class="totals mt-3 d-none d-lg-block">
-      <div class="p-3 border rounded" style="background-color: #f8f9fa;">
-          <div class="row align-items-center">
-              <div class="col text-start">
-                  <p style="font-size: 1.2em; margin: 0;">
-                      <i class="fas fa-tag me-2"></i> Codes: 
-                      <span class="badge bg-primary">{{ $codeCount }}</span>
-                  </p>
-              </div>
-           
-              <div class="col text-end">
-                  <p style="font-size: 1.2em; margin: 0;">
-                      <i class="fas fa-shopping-cart me-2"></i> Deals: 
-                      <span class="badge bg-success">{{ $dealCount }}</span>
-                  </p>
-              </div>
-                 <div class="col text-center">
-                  @php
-                      $totalCount = $codeCount + $dealCount;
-                  @endphp
-                  <p style="font-size: 1.2em; margin: 0;">
-                      <i class="fas fa-calculator me-2"></i>Total: 
-                      <span class="badge bg-info">{{ $totalCount }}</span>
-                  </p>
-              </div>
-          </div>
-      </div>
-  </div>
+ 
   <div class="col-12">
     <h2 class="fw-bold home_ts_h2 text-center">Shopping Hacks & Savings Tips & Tricks</h2>
   </div>
   <div class="container bg-light">
    
       <div class="carousel-inner bg-light">
-        @foreach ($blogs->chunk(20) as $chunk)
+        @foreach ($blogs->chunk(200000) as $chunk)
           <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
             <div class="d-flex flex-row flex-nowrap overflow-auto">
               @foreach ($chunk as $blog)
@@ -348,18 +397,16 @@ body{
   <br><br><br>
 
 <script>
-    function copyCoupon(code) {
-        navigator.clipboard.writeText(code)
-            .then(() => {
-                alert("Coupon code copied!");
-            })
-            .catch((error) => {
-                console.error("Failed to copy: ", error);
-            });
-    }
-</script>
+         function copyCoupon(code) {
+            navigator.clipboard.writeText(code)
+                .then(() => {
+                    alert("Coupon code copied!");
+                })
+                .catch((error) => {
+                    console.error("Failed to copy: ", error);
+                });
+        }
 
-    <script>
         function openCouponInNewTab(url, couponId) {
             window.open(url, '_blank');
             var modal = new bootstrap.Modal(document.getElementById('codeModal' + couponId));

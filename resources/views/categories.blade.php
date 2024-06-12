@@ -44,7 +44,7 @@ header("X-Robots-Tag:index, follow");
 </style> 
 </head>
        <body>
-           <x-component-name/>
+
 <main>
     <div class="main_content">
         <div class="container">
@@ -55,7 +55,7 @@ header("X-Robots-Tag:index, follow");
             
     <div class="card shadow p-3">
                             <div class="card-body">
-                               <a href="{{ url('related_categories/'. Str::slug($category->title)) }}" class="text-decoration-none">
+                               <a href="{{ url('related_categories/'. Str::slug($category->slug)) }}" class="text-decoration-none">
 
                                 @if ($category->category_image)
                                 <img class=" rounded-circle"
@@ -75,7 +75,7 @@ header("X-Robots-Tag:index, follow");
     </div>
 </main>
 
-<x-footer/>
+
 
 </body>
 </html>

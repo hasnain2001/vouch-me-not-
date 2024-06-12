@@ -42,7 +42,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="url">URL <span class="text-danger">*</span></label>
-                                    <input type="url" class="form-control" name="url" id="url" value="{{ $stores->url }} required">
+                                    <input type="url" class="form-control" name="url" id="url" value="{{ $stores->url }}" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="destination_url">Destination URL <span class="text-danger">*</span></label>
@@ -59,12 +59,12 @@
                                 </div>
                                   <div class="form-group">
                                     <label for="name">Meta Title<span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" name="title" id="name" >
+                                    <input type="text" class="form-control" name="title" id="name"  value="{{ $stores->title }}" >
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="meta_tag">Meta Tag <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="meta_tag" id="meta_tag" value="{{ $stores->meta_tag }}">
-                                </div>
+                                </div> --}}
                                 <div class="form-group">
                                     <label for="meta_keyword">Meta Keyword <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="meta_keyword" id="meta_keyword" value="{{ $stores->meta_keyword }}">

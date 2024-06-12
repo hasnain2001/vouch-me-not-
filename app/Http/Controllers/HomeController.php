@@ -62,20 +62,36 @@ public function topStores(Request $request)
         return view('Blog', compact('blog'));
     }
  
- public function StoreDetails($name) {
-    $slug = Str::slug($name);
-    $title = ucwords(str_replace('-', ' ', $slug));
-    $coupons = Coupons::where('store', $title)->orderByRaw('CAST(`order` AS SIGNED) ASC')->get();
-    $store = Stores::where('name', $title)->first();
- $blogs = Blog::latest()->paginate(10);
-    // Fetch related stores
-    $relatedStores = Stores::where('category', $store->category)
-                           ->where('id', '!=', $store->id)
-                        
-                           ->get();
+    public function StoreDetails($name, Request $request) {
+        $slug = Str::slug($name);
+        $title = ucwords(str_replace('-', ' ', $slug));
+        $store = Stores::where('name', $title)->first();
+    
+        // Sort coupons based on query parameter
+        $sort = $request->query('sort', 'all');
+    
+        if ($sort === 'codes') {
+            $coupons = Coupons::where('store', $title)->whereNotNull('code')->orderByRaw('CAST(`order` AS SIGNED) ASC')->get();
+        } elseif ($sort === 'deals') {
+            $coupons = Coupons::where('store', $title)->whereNull('code')->orderByRaw('CAST(`order` AS SIGNED) ASC')->get();
+        } else {
+            $coupons = Coupons::where('store', $title)->orderByRaw('CAST(`order` AS SIGNED) ASC')->get();
+        }
+    
+        $codeCount = Coupons::where('store', $title)->whereNotNull('code')->count();
+        $dealCount = Coupons::where('store', $title)->whereNull('code')->count();
+    
+        $blogs = Blog::all();
+    
+        // Fetch related stores
+        $relatedStores = Stores::where('category', $store->category)
+                               ->where('id', '!=', $store->id)
+                               ->get();
+    
+        return view('store_details', compact('store', 'coupons', 'relatedStores', 'blogs', 'codeCount', 'dealCount'));
+    }
+    
 
-    return view('store_details', compact('store', 'coupons', 'relatedStores','blogs'));
-}
      public function categories() {
         $categories = Categories::all();
         return view('categories', compact('categories'));

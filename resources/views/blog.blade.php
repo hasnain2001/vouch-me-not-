@@ -179,7 +179,8 @@ header("X-Robots-Tag:index, follow");
    <div class="col-md-4">
     <aside class="sidebar p-3 bg-light">
       <!-- Sidebar Title -->
-      <h2 class="bold text-dark mb-3">Top Stores</h2>
+      <h2 class="text-left text-dark">Latest Stores
+      </h2>
       <!-- Store Listings -->
       <div class="row gx-2 gy-2">
         @foreach ($chunks as $store)
