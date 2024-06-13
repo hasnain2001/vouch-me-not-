@@ -12,24 +12,8 @@ use Illuminate\Support\Str;
 class SearchController extends Controller
 {
     
+
 public function search(Request $request) {
-    $query = $request->input('query');
-
-    // Fetch stores matching the query for autocomplete
-    $stores = Stores::where('name', 'like', "$query%")->pluck('name');
-
-    // Check if there is a single store matching the query exactly
-    $store = Stores::where('name', $query)->first();
-
-    if ($store) {
-        // If a single store is found, redirect to its details page
-        return redirect()->route('store_details', ['name' => Str::slug($store->name)]);
-    }
-
-    return response()->json(['stores' => $stores]);
-}
-
-public function searchResults(Request $request) {
     $query = $request->input('query');
 
     // Fetch stores matching the query for autocomplete

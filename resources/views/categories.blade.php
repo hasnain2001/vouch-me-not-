@@ -44,7 +44,7 @@ header("X-Robots-Tag:index, follow");
 </style> 
 </head>
        <body>
-
+        <x-navbar/>
 <main>
     <div class="main_content">
         <div class="container">
@@ -55,16 +55,16 @@ header("X-Robots-Tag:index, follow");
             
     <div class="card shadow p-3">
                             <div class="card-body">
-                               <a href="{{ url('related_categories/'. Str::slug($category->slug)) }}" class="text-decoration-none">
+                               <a href="{{ route('related_category', ['title' => Str::slug($category->title)]) }}" class="text-decoration-none">
 
                                 @if ($category->category_image)
                                 <img class=" rounded-circle"
-                                    src="{{ asset('uploads/' . $category->category_image) }}"
+                                    src="{{ asset('uploads/categories/' . $category->category_image) }}"
                                     alt="{{ $category->title }} Image" style="width: 200px; height: 200px;">
                                 @else
                                 <p>No image available</p>
                                 @endif
-                                <h5 class="card-title mt-3 mx-2">{{ $category->title }}</h5>
+                                <h5 class="card-title mt-3 mx-2">{{ $category->slug }}</h5>
                             </div>
                         </div>
                     </a>

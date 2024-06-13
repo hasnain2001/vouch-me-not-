@@ -137,7 +137,7 @@ header("X-Robots-Tag:index, follow");
 <body>
 
 
-
+  <x-navbar/>
 
 <br><br>
 

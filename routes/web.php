@@ -100,8 +100,8 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index');
     Route::get('/stores', 'stores')->name('stores');
     Route::get('/stores/{slug}', 'StoreDetails')->name('store_details');
-    Route::get('/categories', 'relatedcategories')->name('related_category');
-    Route::get('/categories/{slug}', 'relatedcategories')->name('related_category');
+    Route::get('/categories', 'categories')->name('categories');
+    Route::get('/categories/{title}', 'viewcategory')->name('related_category');
   
   
 });

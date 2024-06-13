@@ -67,7 +67,7 @@ nav{
   </style>
 </head>
 <body>
-<x-component-name/>
+  <x-navbar/>
 <br>   <b   <br>   <br>
    <div class="container bg-light">
            <div class="container ">

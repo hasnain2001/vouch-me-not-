@@ -152,7 +152,9 @@ background-color:rgb(87, 18, 124);
   </style>
   
 </head>
-<body><div class="container">
+<body>
+  <x-navbar/>
+  <div class="container">
   <div class="row">
       <div class="col-12 col-md-8 mb-4">
           <div class="blog-post card shadow rounded-lg border border-light">

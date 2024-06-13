@@ -20,7 +20,7 @@
 
 </head>
 <body>
-<x-component-name/>
+  <x-navbar/>
 
 <main>
   <section class="hero bg-light py-5">

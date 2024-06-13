@@ -20,23 +20,27 @@ header("X-Robots-Tag:index, follow");
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <!-- Bootstrap CSS v5.2.1 -->
-      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="{{ asset('front/assets/css/style.css') }}">
-    
-           <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <meta name='impact-site-verification' value='de4ec733-7974-4b7d-a7aa-611819cb6e0f'>
-
+<style>
+      .social-icons a {
+            color: white; /* Change icon color as needed */
+            margin-left: 10px; /* Adjust margin between icons as needed */
+            font-size: 25px; /* Adjust icon size as needed */
+        }
+        .social-icons a :hover {
+        color: black;
+        
+        }
+   
+</style>
 
 </head>
 
 <body>
-
-<x-component-name/>
+    <x-navbar/>
 
 <br><br>
 
@@ -94,7 +98,7 @@ $(document).ready(function() {
     $('#searchInput').autocomplete({
         source: function(request, response) {
             $.ajax({
-                url: '{{ route("searchResults") }}',
+                url: '{{ route("search") }}',
                 dataType: 'json',
                 data: {
                     query: request.term

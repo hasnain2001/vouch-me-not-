@@ -58,7 +58,7 @@ background-color:rgb(87, 18, 124);
   </style>
 </head>
 <body>
-    <x-component-name/>
+  <x-navbar/>
     <div class="container bg-light py-5">
         <div class="text-center">
             <div class="image-container">

@@ -65,10 +65,10 @@
                                     <label for="name">Meta Title<span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="title" id="name" >
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="meta_tag">Meta Tag <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="meta_tag" id="meta_tag">
-                                </div>
+                                </div> --}}
                                 <div class="form-group">
                                     <label for="meta_keyword">Meta Keyword <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="meta_keyword" id="meta_keyword">

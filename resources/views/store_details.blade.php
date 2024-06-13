@@ -232,7 +232,7 @@ header("X-Robots-Tag:index, follow");
   </head>
   <body>
       
-  
+    <x-navbar/>
 <br><br><br>
 <div class="container">
     @if ($store)
@@ -276,11 +276,7 @@ header("X-Robots-Tag:index, follow");
   <div class="container">
     <div class="row">
     
-<div class="col-md-12 mb-3">
-    <a href="{{ route('store_details', ['slug' => str_replace(' ', '-', $store->name), 'sort' => 'all']) }}" class="sort sort-outlie-primary me-2">Show All</a>
-    <a href="{{ route('store_details', ['slug' => str_replace(' ', '-', $store->name), 'sort' => 'codes']) }}" class="sort sort-outline-info me-2">Show Codes</a>
-    <a href="{{ route('store_details', ['slug' => str_replace(' ', '-', $store->name), 'sort' => 'deals']) }}" class="sort sort-outline-success">Show Deals</a>
-</div>
+
         
         
     </div>
@@ -346,6 +342,11 @@ header("X-Robots-Tag:index, follow");
            <div class="col-md-4">
               <aside class="sidebar p-3 bg-light">
                   <!-- Sidebar Title -->
+                  @if (isset($stores) && $stores->isEmpty())
+                  <div class="col-12">
+                      <h1>No stores found.</h1>
+                  </div>
+              @elseif(isset($stores))
                   <h2 class="bold text-dark mb-3">Related Stores</h2>
                   <!-- Store Listings -->
                   <div class="row gx-2 gy-2">
@@ -359,6 +360,7 @@ header("X-Robots-Tag:index, follow");
                           </a>
                       </div>
                       @endforeach
+                      @endif
                   </div>
               </aside>
           </div>

@@ -93,12 +93,19 @@ font-weight: bold;
 }</style>
 </head>
 <body>
-    <x-component-name/>
+    <x-navbar/>
+
+   @foreach ($categories as $item)
+   <h1 class="text-left text-center">{{ $item->slug }}</h1> 
+   @endforeach
+
+
     <div class="container">
         <div class="card-list ">
             @foreach ($stores as $store)
-            <a href="{{ route('store_details', ['name' => Str::slug($store->name)]) }}" class="text-decoration-none">
-                <img class="stores shadow " src="{{ $store->store_image ? asset('uploads/store/' . $store->store_image) : asset('front/assets/images/no-image-found.jpg') }}" alt="Card Image">
+
+            <a href="{{ route('store_details', ['slug' => Str::slug($store->slug)]) }}" class="text-decoration-none">
+                <img class="stores shadow " src="{{ $store->store_image ? asset('uploads/stores/' . $store->store_image) : asset('front/assets/images/no-image-found.jpg') }}" alt="store Image">
               
                     <h5 class="card-title mt-3 mx-2">{{ $store->name ?: "Title not found" }}</h5>
              
@@ -108,7 +115,6 @@ font-weight: bold;
     </div>
    
 
-    <x-footer/>
 
         <script>
             function openCouponInNewTab(url, couponId) {
@@ -116,6 +122,25 @@ font-weight: bold;
                 var modal = new bootstrap.Modal(document.getElementById('codeModal' + couponId));
                 modal.show();
             }
+
+                
+$(document).ready(function() {
+    $('#searchInput').autocomplete({
+        source: function(request, response) {
+            $.ajax({
+                url: '{{ route("search") }}',
+                dataType: 'json',
+                data: {
+                    query: request.term
+                },
+                success: function(data) {
+                    response(data.stores);
+                }
+            });
+        },
+       
+    });
+});
         </script>
 </body>
 </html>

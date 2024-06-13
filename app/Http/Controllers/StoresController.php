@@ -42,12 +42,12 @@ class StoresController extends Controller
 
         Stores::create([
             'name' => $request->name,
+            'slug' => $request->slug,
             'description' => $request->description,
             'url' => $request->url,
             'destination_url' => $request->destination_url,
             'category' => $request->category,
-            'title' => $request->title,
-            'slug' => $request->slug,
+            'title' => $request->title, 
             'meta_tag' => $request->meta_tag,
             'meta_keyword' => $request->meta_keyword,
             'meta_description' => $request->meta_description,

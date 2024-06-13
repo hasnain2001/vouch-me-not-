@@ -29,10 +29,14 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="title">Category Title <span class="text-danger">*</span></label>
+                                    <label for="title">Category Title<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="slug" id="slug" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="title">slug <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="title" id="title" required>
                                 </div>
-                              
+                               
                                
                                 <div class="form-group">
                                     <label for="meta_tag">Meta Tag <span class="text-danger">*</span></label>

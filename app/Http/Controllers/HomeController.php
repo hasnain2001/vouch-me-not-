@@ -65,7 +65,7 @@ public function topStores(Request $request)
     public function StoreDetails($name, Request $request) {
         $slug = Str::slug($name);
         $title = ucwords(str_replace('-', ' ', $slug));
-        $store = Stores::where('name', $title)->first();
+        $store = Stores::where('slug', $title)->first();
     
         // Sort coupons based on query parameter
         $sort = $request->query('sort', 'all');
@@ -119,7 +119,7 @@ public function viewcategory($title)
     $storeCount = $stores->count();
 
     // Pass the stores, category name, categories, and store count to the view
-    return view('related_category', compact('stores', 'name', 'categories', 'storeCount'));
+    return view('related_categories', compact('stores', 'name', 'categories', 'storeCount'));
 }
 
 
