@@ -7,16 +7,39 @@ use App\Models\Coupons;
 use App\Models\Stores;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Validator;
+
 
 class HomeController extends Controller
 {
+     
+     public function handleRedirect(Request $request)
+     {
+         // Validate the incoming request data
+         $validator = Validator::make($request->all(), [
+             'couponCode' => 'required|string',
+             'destinationUrl' => 'required|url',
+         ]);
+     
+         if ($validator->fails()) {
+             return response()->json(['error' => 'Invalid data provided'], 400);
+         }
+     
+         $couponCode = $request->input('couponCode');
+         $destinationUrl = $request->input('destinationUrl');
+     
+         // Optionally add any server-side logic here
+     
+         return response()->json(['redirectUrl' => $destinationUrl]);
+     }
       public function index() {
     $stores = Stores::latest()->paginate(15);
-    $categories = Categories::all();
+    $categories = Categories::paginate(12);
     $blogs = Blog::latest()->paginate();
-    $home = Blog::latest()->paginate();
+    $home = Blog::all();
       $Coupons = Coupons::latest()->paginate(15);
-    return view('home', compact('stores', 'categories', 'blogs','Coupons','home'));
+      $popularstores = Stores::paginate(12);
+    return view('home', compact('stores', 'categories', 'blogs','Coupons','home','popularstores'));
 }
 public function topStores(Request $request)
 {

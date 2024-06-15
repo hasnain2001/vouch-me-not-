@@ -6,6 +6,7 @@ use App\Models\Categories;
 use App\Models\Networks;
 use Illuminate\Http\Request;
 use App\Models\Stores;
+use Illuminate\Support\Facades\Validator;
 
 class StoresController extends Controller
 {
@@ -67,37 +68,53 @@ class StoresController extends Controller
         return view('admin.stores.edit', compact('stores', 'categories', 'networks'));
     }
 
-    public function update_store(Request $request, $id) {
-        $stores = Stores::find($id);
-
-        if (request()->File('store_image'))
-        {
-            $file = request()->File('store_image');
-            $StoreImage = md5($file->getClientOriginalName()) . '.' . $file->getClientOriginalExtension();
-            $file->move('./uploads/stores', $StoreImage);
+    public function update_store(Request $request, $id)
+    {
+        $stores = Stores::findOrFail($id);
+    
+        $validator = Validator::make($request->all(), [
+            'title' => 'nullable|string|max:65',
+            'meta_tag' => 'nullable|string|max:255',
+            'meta_keyword' => 'nullable|string|max:255',
+            'meta_description' => 'nullable|string|between:70,155',
+        ]);
+    
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
         }
-
+    
+        $StoreImage = $stores->store_image;
+    
+        if ($request->hasFile('store_image')) {
+            $file = $request->file('store_image');
+            $StoreImage = md5($file->getClientOriginalName()) . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads/stores'), $StoreImage);
+            // Delete the previous image if it exists
+            if ($stores->store_image && file_exists(public_path('uploads/stores/' . $stores->store_image))) {
+                unlink(public_path('uploads/stores/' . $stores->store_image));
+            }
+        }
+    
         $stores->update([
             'name' => $request->name,
             'slug' => $request->slug,
             'description' => $request->description,
             'url' => $request->url,
             'destination_url' => $request->destination_url,
-            'category' => isset($request->category) ? $request->category : $stores->category,
+            'category' => $request->category ?? $stores->category,
             'title' => $request->title,
             'meta_tag' => $request->meta_tag,
             'meta_keyword' => $request->meta_keyword,
             'meta_description' => $request->meta_description,
             'status' => $request->status,
-            'authentication' => isset($request->authentication) ? $request->authentication : "No Auth",
-            'network' => isset($request->network) ? $request->network : $stores->network,
-            'store_image' => isset($StoreImage) ? $StoreImage : "No Store Image",
+            'authentication' => $request->authentication ?? "No Auth",
+            'network' => $request->network ?? $stores->network,
+            'store_image' => $StoreImage,
         ]);
-
+    
         return redirect()->back()->with('success', 'Store Updated Successfully');
     }
-
-    public function delete_store($id) {
+        public function delete_store($id) {
         Stores::find($id)->delete();
         return redirect()->back()->with('success', 'Store Deleted Successfully');
     }

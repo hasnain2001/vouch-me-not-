@@ -32,7 +32,7 @@ Route::get('/privacy', function () {
 
 Route::get('/term-and-condition', function () {
     return view('term-and-condition');
-})->name('term-and-condition');
+})->name('term_and_condition');
 
 
 
@@ -94,6 +94,7 @@ Route::get('/blogs/{slug}',  'blog_show')->name('blog-details');
   
 });
 
+Route::post('/redirect', [HomeController::class, 'handleRedirect'])->name('coupon.redirect');
 
 
 Route::controller(HomeController::class)->group(function () {

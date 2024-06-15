@@ -16,14 +16,13 @@ header("X-Robots-Tag:index, follow");
  <meta name="robots" content="index, follow">
 
 <link rel="canonical" href="https://deals69.com/blog">
-   <link rel="icon" href="{{ asset('front/assets/images/icons.png') }}" type="image/x-icon">
+<link rel="icon" href="{{ asset('images/icons.png') }}" type="image/x-icon">
   <!-- Bootstrap CSS -->
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('bootstrap-4.6.2-dist/css/bootstrap.min.css') }}">
   <!-- Custom CSS -->
 
   
-  
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ 
   <style>
  
     .blog-post {
@@ -99,39 +98,7 @@ header("X-Robots-Tag:index, follow");
 
 
 
-}
-  
-    .form-container {
-      max-width: 600px; /* Adjust max-width as needed */
-      width: 100%;
-    }
-    .form-container form {
-        right:200px;
-      display: flex;
-      justify-content: center; /* Center contents horizontally */
-      align-items: center;
-    }
-    .social-icons a {
-      color:white; /* Change icon color as needed */
-      margin-left: 10px; /* Adjust margin between icons as needed */
-      font-size: 25px; /* Adjust icon size as needed */
-    }
-    .form-container form {
-            display: flex;
-            justify-content: center; /* Center contents horizontally */
-            align-items: center;
-        }
-        .social-icons a {
-            color: white; /* Change icon color as needed */
-            margin-left: 10px; /* Adjust margin between icons as needed */
-            font-size: 25px; /* Adjust icon size as needed */
-        }
-        section {
-            background-color: rgb(87, 18, 124);
-        }
-        .bold{
-            color:black;
-        }
+
   </style>
 </head>
 <body>
@@ -199,7 +166,7 @@ header("X-Robots-Tag:index, follow");
   </div>
 </div>
 
-  
+<x-footer/>
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
     </script>

@@ -8,20 +8,21 @@ header("X-Robots-Tag:index, follow");
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-          <title>Deals69 - Best Deals and Discounts |Categories</title>
-    <!-- Your custom meta tags go here -->
-     <meta name="description" content="Find the best deals, discounts, and coupons on Honeycomb Deals. Save money on your favorite products from top brands.">
-
- <meta name="keywords" content="deals, discounts, coupons, savings, affiliate marketing">
+       
+       @foreach($categories as $category)
+       <title>{!! $category->title !!}</title>
+       <link rel="canonical" href="https://budgetheaven.com/related_category/{{ Str::slug($category->title) }}">
+   
+       <!-- Your custom meta tags go here -->
+       <meta name="description" content="{!! $category->meta_description !!}">
+       <meta name="keywords" content="{!! $category->meta_keyword !!}">
+   @endforeach
 
   <meta name="author" content="John Doe">
  <meta name="robots" content="index, follow">
-
+ <link rel="icon" href="{{ asset('images/icons.png') }}" type="image/x-icon">
 <link rel="canonical" href="https://deals69.com/categories">
-<link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-A/oxWIdYLO6gLcSQpUp9Uv9N6YMy4N4o+sjg2b+j5gZaTq6H2DtBvFKd6uPzhBXRtby7zxaYYEF5cL29KC5sag==" crossorigin="anonymous" />
-
+<link rel="stylesheet" href="{{ asset('bootstrap-4.6.2-dist/css/bootstrap.min.css') }}">
 <style>
     .body{
 background-color:#fff;
@@ -94,10 +95,11 @@ font-weight: bold;
 </head>
 <body>
     <x-navbar/>
-
-   @foreach ($categories as $item)
-   <h1 class="text-left text-center">{{ $item->slug }}</h1> 
-   @endforeach
+  
+<div class="container">
+    <h1 class="text-center">{{ $name }}</h1>
+</div>
+ 
 
 
     <div class="container">
@@ -115,6 +117,14 @@ font-weight: bold;
     </div>
    
 
+    <x-footer/>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 
         <script>
             function openCouponInNewTab(url, couponId) {

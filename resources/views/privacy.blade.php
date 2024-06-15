@@ -4,75 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy</title>
-      <link rel="icon" href="{{ asset('front/assets/images/icons.png') }}" type="image/x-icon">
-  <!-- Bootstrap CSS -->
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="{{ asset('front/assets/css/style.css') }}">
-  <style>
+  <link rel="icon" href="{{ asset('images/icons.png') }}" type="image/x-icon">
   
-  body{
-     font-family: Nunito,Normal;
-}
-h1{
-    color:black ;
-}
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{{ asset('bootstrap-4.6.2-dist/css/bootstrap.min.css') }}">
 
-nav{
-
-  background-color:rgb(93, 25, 130);
-}
-section{
-background-color:rgb(87, 18, 124);
-}
-
-
-}
-  .container {
-      display: flex;
-      justify-content: center; /* Center contents horizontally */
-      align-items: center;
-    }
-    .form-container {
-      max-width: 600px; /* Adjust max-width as needed */
-      width: 100%;
-    }
-    .form-container form {
-        right:200px;
-      display: flex;
-      justify-content: center; /* Center contents horizontally */
-      align-items: center;
-    }
-    .social-icons a {
-      color:white; /* Change icon color as needed */
-      margin-left: 10px; /* Adjust margin between icons as needed */
-      font-size: 25px; /* Adjust icon size as needed */
-    }
-    .image-container img {
-    background-color: transparent;
-    mix-blend-mode:multiply;
-}
-
-  </style>
+ 
+<style>
+  .pri{
+    width:300px;
+    height: 100%; 
+   
+  }
+</style>
 </head>
 <body>
   <x-navbar/>
     <div class="container bg-light py-5">
         <div class="text-center">
             <div class="image-container">
-                <img src="images/deals69.jpg" alt="Deals 69 Vision Image" class="d69 img-fluid shadow border-info" />
+                <img src="images/privacy.jpg" alt="Deals 69 Vision Image" class=" pri img-fluid shadow border-info" />
             </div>
             
 
-          <h1 class="mt-3 mb-4">Protecting Your Privacy at Deals69</h1>
+          <h1 class="mt-3 mb-4">Protecting Your Privacy at Vouchmenot</h1>
         </div>
       
         <div class="row">
           <div class="col-md-8 mx-auto mb-4">
             <p>
-              At Deals69, your privacy and security are our top priorities. This Privacy Policy explains how we collect, use, and protect your information when you use our services. If you disagree with our policies, please refrain from using Deals69.
+              At Vouchmenot, your privacy and security are our top priorities. This Privacy Policy explains how we collect, use, and protect your information when you use our services. If you disagree with our policies, please refrain from using Deals69.
             </p>
             <p class="text-center fw-bold">Last Updated: October 2023</p>
           </div>
@@ -165,7 +126,7 @@ background-color:rgb(87, 18, 124);
                       <span class="me-3">
                         <i class="fas fa-envelope text-primary fs-4"></i> Contact Us
                       </span>
-                      <p class="ms-auto mb-0">Have questions? Contact us at <a href="mailto:admin@budgetheaven.com">admin@budgetheaven.com</a>.</p>
+                      <p class="ms-auto mb-0">Have questions? Contact us at <a href="mailto:admin@Vouchmenot.com">admin@Vouchmenot.com</a>.</p>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                       <span class="me-3">

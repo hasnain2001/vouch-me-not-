@@ -6,7 +6,7 @@ header("X-Robots-Tag:index, follow");?>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="icon" href="{{ asset('front/assets/images/icons.png') }}" type="image/x-icon">
+  <link rel="icon" href="{{ asset('images/icons.png') }}" type="image/x-icon">
 
 @if(isset($blog) && is_object($blog))
    <!-- Your custom meta tags go here -->
@@ -25,17 +25,14 @@ header("X-Robots-Tag:index, follow");?>
 
   <!-- Bootstrap CSS -->
   <!-- Add Swiper CSS -->
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="{{ asset('bootstrap-4.6.2-dist/css/bootstrap.min.css') }}">
 
-<!-- Add Swiper JS -->
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+ 
   
   
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="{{ asset('front/assets/css/style.css') }}">
+
   <style>
     /* Custom styles */
     body {
@@ -117,43 +114,15 @@ header("X-Robots-Tag:index, follow");?>
         height: 200;
         border-radius:5%;
     }
-    nav{
 
-  background-color:rgb(93, 25, 130);
-}
-section{
-background-color:rgb(87, 18, 124);
-}
 
-  .container {
-      display: flex;
-      justify-content: center; /* Center contents horizontally */
-      align-items: center;
-    }
-    .form-container {
-      max-width: 600px; /* Adjust max-width as needed */
-      width: 100%;
-    }
-    .form-container form {
-        right:200px;
-      display: flex;
-      justify-content: center; /* Center contents horizontally */
-      align-items: center;
-    }
-    .social-icons a {
-      color:white; /* Change icon color as needed */
-      margin-left: 10px; /* Adjust margin between icons as needed */
-      font-size: 20px; /* Adjust icon size as needed */
-    }
-     .social-icons a hover {
-
-    background-color:purple;
-     }
+  
   </style>
   
 </head>
 <body>
   <x-navbar/>
+  <br><br>
   <div class="container">
   <div class="row">
       <div class="col-12 col-md-8 mb-4">
@@ -183,7 +152,7 @@ background-color:rgb(87, 18, 124);
       </div>
   </div>
 </div>
-
+<x-footer/>
   <script>
     var swiper = new Swiper('.swiper-container', {
         slidesPerView: 'auto',

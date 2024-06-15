@@ -99,7 +99,13 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="store_image">Store Image <span class="text-danger">*</span></label>
-                                    <input type="file" class="form-control" name="store_image" id="store_image" required>
+                                    <input type="file" class="form-control" name="store_image" id="store_image">
+                                    @if($stores->store_image)
+                                        <input type="hidden" name="previous_image" value="{{ $stores->store_image }}">
+                                        <img src="{{ asset('uploads/stores/'.$stores->store_image) }}" alt="Current Store Image" style="max-width: 200px;">
+                                    @else
+                                        <p>No image uploaded</p>
+                                    @endif
                                 </div>
                             </div>
                         </div>

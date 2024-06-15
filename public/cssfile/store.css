@@ -1,84 +1,124 @@
-            .body{
-    background-color:white;
+.card-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
-    .container {
-        max-width: 1200px;
-        margin: auto;
-        padding: 20px;
-    }
+.store-card {
+    position: relative;
+    width: calc(20% - 20px);
+    margin: 10px;   
+    border: 1px dotted #bbafaf;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    
 
-    .bg-light {
-        background-color: #f8f9fa;
+    font-family: sans-serif;
+}
+.store-card:hover, .store-card.active {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.store-image {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    max-height: 200px;
+    object-fit: cover;
+    width: 100%;
+}
+.store-info {
+    color: white;
+    padding: 15px;
+    background-color:#053f24;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+.store-card:hover .store-info, .store-card.active .store-info {
+    opacity: 1;
+}
+.store-name {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.store-description {
+    font-size: 14px;
+    margin: 0;
+}
+@media (max-width: 768px) {
+    .store-card {
+        width: calc(50% - 20px);
     }
-
-    .card-list {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        align-items: center;
-    }
-
-    .card-list a {
-        text-decoration: none;
-        color: inherit;
-        width: 100%;
-        max-width: 200px;
-        margin-bottom: 20px;
+    .store-info {
         padding: 10px;
-        border-radius: 5px;
-       
-        transition: all 0.3s ease;
+        font-size: 14px;
     }
-
-    .card-list a:hover {
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    .store-name {
+        font-size: 16px;
     }
-
-    .stores {
-        width: 100%;
-      height: auto;
-  border-radius: 60%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+    .store-description {
+        font-size: 12px;
     }
-.stores:hover {
-  transform: scale(1.05);
 }
-    .card-title {
-        text-align: center;
-        margin-top: 10px;
-        font-size: 1.2rem;
-        font-weight: bold;
+@media (max-width: 576px) {
+    .store-card {
+        width: calc(50% - 20px); /* Ensures two columns on smaller screens */
     }
-
-    @media (min-width: 768px) {
-        .card-list {
-            justify-content: flex-start;
-        }
-
-        .card-list a {
-            width: calc(25% - 20px);
-            margin-right: 20px;
-            margin-bottom: 20px;
-        }
-
-        .card-list a:nth-child(4n) {
-            margin-right: 0;
-        }
+    .store-info {
+        padding: 8px;
+        font-size: 12px;
     }
-    .scroll-to-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 10px;
-  background-color:red;  /* Adjust color as needed */
+    .store-name {
+        font-size: 14px;
+    }
+    .store-description {
+        font-size: 10px;
+    }
+}  
+
+.my-pagination {
+  flex-wrap: wrap;
+}
+
+.my-pagination .page-item {
+  margin: 5px;
+}
+
+.my-pagination .page-link {
+  border: 1px solid #ddd;
   border-radius: 50%;
-  font-size: 1.5rem;
-  opacity: 0.7;
-  transition: all 0.3s ease-in-out;
-  z-index: 99;  /* Ensure button stays on top */
+  padding: 10px 15px;
+  color: #007bff;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.scroll-to-top:hover {
-  opacity: 1;
+.my-pagination .page-link:hover {
+  background-color:#053f24;
+  color: #fff;
+  text-decoration: none;
+}
+
+.my-pagination .page-item.active .page-link {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: #fff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .my-pagination .page-link {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .my-pagination .page-link {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
 }

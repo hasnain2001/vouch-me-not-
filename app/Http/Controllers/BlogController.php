@@ -115,79 +115,62 @@ public function blog_show($slug) {
         return view('admin.Blog.edit', compact('blog'));
     }
 
-public function update(Request $request, $id)
-{
-   
-    $blog = Blog::findOrFail($id);
-
+    public function update(Request $request, $id)
+    {
+        $blog = Blog::findOrFail($id);
     
-    $validatedData = $request->validate([
-        'title' => 'required|string|max:255', 
-        'slug' => 'required|string|max:255', 
-        'content' => 'required|string',
-        'category_image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
-        'meta_title' => 'nullable|string|max:65', 
-        'meta_description' => 'nullable|string|max:155', 
-        'meta_keyword' => 'nullable|string|max:255', 
-    ]);
-
-    if ($request->hasFile('category_image')) {
-        $image = $request->file('category_image');
-        $imageName = time().'.'.$image->getClientOriginalExtension();
-        $image->move(public_path('uploads'), $imageName);
-        $blog->category_image = 'uploads/'.$imageName;
-    }
-
+        $validatedData = $request->validate([
+            'title' => 'required|string|max:255', 
+            'slug' => 'required|string|max:255', 
+            'content' => 'required|string',
+            'category_image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
+            'meta_title' => 'nullable|string|max:65', 
+            'meta_description' => 'nullable|string|max:155', 
+            'meta_keyword' => 'nullable|string|max:255', 
+        ]);
     
-    $content = $request->input('content');
-
-
-    $dom = new \DOMDocument();
-    libxml_use_internal_errors(true);
-    $dom->loadHTML('<?xml encoding="UTF-8">' . $content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
-    libxml_clear_errors();
-
-  
-    $images = $dom->getElementsByTagName('img');
-    foreach ($images as $img) {
-        $imageSrc = $img->getAttribute('src');
-        if (strpos($imageSrc, 'data:image/') === 0) {
-            $imageParts = explode(';', $imageSrc);
-            $imageTypeAux = explode('/', $imageParts[0]);
-            $imageType = $imageTypeAux[1];
-            $imageBase64 = base64_decode(explode(',', $imageParts[1])[1]);
-            $imageName = Str::random(10) . '.' . $imageType;
-            $path = public_path('uploads/') . $imageName;
-            file_put_contents($path, $imageBase64);
-
-            
-            $img->setAttribute('src', asset('uploads/' . $imageName));
+        if ($request->hasFile('category_image')) {
+            $image = $request->file('category_image');
+            $imageName = time().'.'.$image->getClientOriginalExtension();
+            $image->move(public_path('uploads/blog'), $imageName);
+            $blog->category_image = 'uploads/blog/'.$imageName;
         }
+    
+        $content = $request->input('content');
+    
+        $dom = new \DOMDocument();
+        libxml_use_internal_errors(true);
+        $dom->loadHTML('<?xml encoding="UTF-8">' . $content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        libxml_clear_errors();
+    
+        $images = $dom->getElementsByTagName('img');
+        foreach ($images as $img) {
+            $imageSrc = $img->getAttribute('src');
+            if (strpos($imageSrc, 'data:image/') === 0) {
+                $imageParts = explode(';', $imageSrc);
+                $imageTypeAux = explode('/', $imageParts[0]);
+                $imageType = $imageTypeAux[1];
+                $imageBase64 = base64_decode(explode(',', $imageParts[1])[1]);
+                $imageName = Str::random(10) . '.' . $imageType;
+                $path = public_path('uploads/blog/') . $imageName;
+                file_put_contents($path, $imageBase64);
+    
+                $img->setAttribute('src', asset('uploads/blog/' . $imageName));
+            }
+        }
+    
+        $blog->title = $request->input('title');
+        $blog->slug = $request->input('slug');
+        $blog->meta_title = $request->input('meta_title');
+        $blog->meta_description = $request->input('meta_description');
+        $blog->meta_keyword = $request->input('meta_keyword');
+        $blog->content = $dom->saveHTML();
+        $blog->save();
+    
+        session()->flash('success', 'Blog updated successfully.');
+        return redirect()->back()->with('success', 'Blog updated successfully.');
     }
-
-
-    $blog->title = $request->input('title');
-    $blog->slug = $request->input('slug');
-    $blog->meta_title = $request->input('meta_title');
-    $blog->meta_description = $request->input('meta_description');
-    $blog->meta_keyword = $request->input('meta_keyword');
-    $blog->content = $dom->saveHTML();
-    $blog->save();
-
-
-    session()->flash('success', 'Blog updated successfully.');
-    return redirect()->back()->with('success', 'Blog updated successfully.');
-}
-public function destroy($id)
-{
     
-    $blog = Blog::findOrFail($id);
-
-    $blog->delete();
-
-    
-    return redirect()->back()->with('success', 'Blog deleted successfully.');
-}
 
     public function index()
     {
