@@ -8,21 +8,37 @@ header("X-Robots-Tag:index, follow");
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="{{ asset('images/icons.png') }}" type="image/x-icon">
-    <title>HCD</title>
-    <link rel="canonical" href="http://127.0.0.1:8000">
-    <meta name="description" content="mol">
+    
+    <link rel="canonical" href="https://vouchmenot.com">
+<title>VouchMeNot | Best Deals - Save Big on Top Brands!</title>
+
+<meta name="description" content="Explore exclusive discounts and offers on top brands. Save money on your online shopping with Vouch Me Not.">
+
     <meta name="robots" content="index, follow">
+    <meta name="keywords" content="deals, discounts, coupons, savings, affiliate marketing">
     <!-- Bootstrap CSS -->
    
     <link rel="stylesheet" href="{{ asset('cssfile/home.css') }}">
    <link rel="stylesheet" href="{{ asset('bootstrap-4.6.2-dist/css/bootstrap.min.css') }}">
+   
+   
+   <!----admit add--->
+   <meta name="verify-admitad" content="e5b7dd051b" />
+   <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PGBP36HKGR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    <style>
+  gtag('config', 'G-PGBP36HKGR');
+</script>
+     <style>
 
 .carousel {
   position: relative;
-  width: 80%;
-  height: 60vh;
+  width: 100%;
+  height: auto;
   overflow: hidden;
   margin: auto; /* Center align the carousel */
   padding-top: 4px;
@@ -37,7 +53,8 @@ header("X-Robots-Tag:index, follow");
 
 .slider  {
   width: 100%;
-  height: auto;
+  height: 500px;
+  max-height:600px;
 
 }
 
@@ -76,7 +93,7 @@ header("X-Robots-Tag:index, follow");
 @media (max-width: 768px) {
   .carousel {
     width: 100%;
-    height: 30vh;
+    height: 50vh;
   }
 
   .carousel-control-prev,
@@ -85,21 +102,14 @@ header("X-Robots-Tag:index, follow");
     height: 30px;
     font-size: 20px;
   }
+  .slider  {
+  width: 100%;
+  height: 300px;
+  max-height:600px;
+
+}
 }
 
-@media (max-width: 576px) {
-  .carousel {
-    height: 25vh;
-  }
-
-  .carousel-control-prev,
-  .carousel-control-next {
-    
-    width: 25px;
-    height: 25px;
-    font-size: 16px;
-  }
-}
 .faq-section {
             background: white;
             padding: 30px;
@@ -143,37 +153,57 @@ header("X-Robots-Tag:index, follow");
         }
 
 </style>
+ <!-- website varification -->
+      <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16637479794"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-      
+  gtag('config', 'AW-16637479794');
+</script>
+
+
   </head>
   <body>
+      <!-- Event snippet for Page view conversion page -->
+<script>
+  gtag('event', 'conversion', {'send_to': 'AW-16637479794/yRK0CK7z2cMZEPKWr_09'});
+</script>
 <x-navbar/>
 
-    <center>
        
-          <div id="carouselExampleControlsNoTouching" class="carousel slide" data-touch="false" data-interval="false">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="{{ asset('images/caraosel.png') }}" class="slider  d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="{{ asset('images/caraosel-1.png') }}" class=" slider  d-block w-100" alt="...">
-              </div>
-              <div class="carousel-item">
-                <img src="{{ asset('images/caraosel-2.png') }}" class="slider  d-block w-100" alt="...">
-              </div>
-            </div>
-            <button class="carousel-control-prev " type="button" data-target="#carouselExampleControlsNoTouching" data-slide="prev">
-              <span class="carousel-control-prev-icon " aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-target="#carouselExampleControlsNoTouching" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </button>
-          </div>
-</center>
-<br>
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="6000">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{{ asset('images/caraosel.png.png') }}" class="slider d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{{ asset('images/caraosel-1.png') }}" class="slider d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="{{ asset('images/caraosel-2.png') }}" class="slider d-block w-100" alt="...">
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </button>
+</div>
+
 <hr>
 
       {{-- Main Content Here --}}
