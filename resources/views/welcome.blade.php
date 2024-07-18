@@ -8,7 +8,7 @@ header("X-Robots-Tag:index, follow");
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="{{ asset('images/icons.png') }}" type="image/x-icon">
-    
+
     <link rel="canonical" href="https://vouchmenot.com">
 <title>VouchMeNot | Best Deals - Save Big on Top Brands!</title>
 
@@ -17,163 +17,97 @@ header("X-Robots-Tag:index, follow");
     <meta name="robots" content="index, follow">
     <meta name="keywords" content="deals, discounts, coupons, savings, affiliate marketing">
     <!-- Bootstrap CSS -->
-   
-    <link rel="stylesheet" href="{{ asset('cssfile/home.css') }}">
-   <link rel="stylesheet" href="{{ asset('bootstrap-4.6.2-dist/css/bootstrap.min.css') }}">
-   
-   
-   <!----admit add--->
-   <meta name="verify-admitad" content="e5b7dd051b" />
-   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PGBP36HKGR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-PGBP36HKGR');
-</script>
-     <style>
+    <link rel="stylesheet" href="{{ asset('cssfile/home.css') }}">
+    <link rel="stylesheet" href="{{asset('cssfile/welcome.css')}}">
+   <link rel="stylesheet" href="{{ asset('bootstrap-4.6.2-dist/css/bootstrap.min.css') }}">
+
+
+
+ <style>
 
 .carousel {
-  position: relative;
-  width: 100%;
-  height: auto;
-  overflow: hidden;
-  margin: auto; /* Center align the carousel */
-  padding-top: 4px;
-  border-radius: 2%;
-}
-
-.carousel-inner {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-  height: 100%;
-}
-
-.slider  {
-  width: 100%;
-  height: 500px;
-  max-height:600px;
-
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-  width: 40px;
-  height: 40px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color:rgb(5, 5, 5);
-  border: none;
-  color: #fff;
-  font-size: 34px;
-  cursor: pointer;
-  border-radius: 50%;
-  user-select: none;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.carousel-control-prev:hover,
-.carousel-control-next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-
-}
-
-.carousel-control-prev {
-  left: 10px;
-}
-
-.carousel-control-next {
-  right: 10px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .carousel {
+    position: relative;
     width: 100%;
-    height: 50vh;
+    height: auto;
+    overflow: hidden;
+    margin: auto; /* Center align the carousel */
+    padding-top: 4px;
+    border-radius: 2%;
+  }
+
+  .carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+  }
+
+  .slider  {
+    width: 100%;
+    height: 500px;
+    max-height:600px;
+
   }
 
   .carousel-control-prev,
   .carousel-control-next {
-    width: 30px;
-    height: 30px;
-    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color:rgb(5, 5, 5);
+    border: none;
+    color: #fff;
+    font-size: 34px;
+    cursor: pointer;
+    border-radius: 50%;
+    user-select: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
   }
-  .slider  {
-  width: 100%;
-  height: 300px;
-  max-height:600px;
 
-}
-}
+  .carousel-control-prev:hover,
+  .carousel-control-next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 
-.faq-section {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        }
-        .faq-section h1 {
-            color: #343a40;
-            margin-bottom: 30px;
-        }
-        .card-header {
-            background-color: transparent;
-            border-bottom: 1px solid #dee2e6;
-        }
-        .card {
-            border: none;
-            margin-bottom: 10px;
-        }
-        .btn-link {
-            color: #007bff;
-            font-size: 18px;
-            font-weight: 500;
-            text-decoration: none;
-        }
-        .btn-link:hover {
-            text-decoration: underline;
-        }
-        .cardi {
-          margin: 5px;
-          padding:30px;
-            background-color: #f8f9fa;
-            border-top: 1px solid #dee2e6;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-            border: 1px dotted #343a40;
-        }
-        hr
-        {
-          border: 2px dotted;
-          color:#b5bdca;
-        }
+  }
 
-</style>
- <!-- website varification -->
-      <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16637479794"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  .carousel-control-prev {
+    left: 10px;
+  }
 
-  gtag('config', 'AW-16637479794');
-</script>
+  .carousel-control-next {
+    right: 10px;
+  }
 
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .carousel {
+      width: 100%;
+      height: 50vh;
+    }
 
+    .carousel-control-prev,
+    .carousel-control-next {
+      width: 30px;
+      height: 30px;
+      font-size: 20px;
+    }
+    .slider  {
+    width: 100%;
+    height: 300px;
+    max-height:600px;
+
+  }
+  }
+
+ </style>
   </head>
   <body>
-      <!-- Event snippet for Page view conversion page -->
-<script>
-  gtag('event', 'conversion', {'send_to': 'AW-16637479794/yRK0CK7z2cMZEPKWr_09'});
-</script>
+
 <x-navbar/>
 
-       
+
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="6000">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -181,7 +115,7 @@ header("X-Robots-Tag:index, follow");
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
   </ol>
-  
+
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img src="{{ asset('images/caraosel.png.png') }}" class="slider d-block w-100" alt="...">
@@ -252,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 <script>
-    
+
 $(document).ready(function() {
     $('#searchInput').autocomplete({
         source: function(request, response) {
@@ -267,7 +201,7 @@ $(document).ready(function() {
                 }
             });
         },
-       
+
     });
 });
 
@@ -280,12 +214,12 @@ $(document).ready(function() {
                 console.error("Failed to copy: ", error);
             });
     }
-    
+
     function openCouponInNewTab(url, couponId) {
         window.open(url, '_blank');
         var modal = new bootstrap.Modal(document.getElementById('codeModal' + couponId));
         modal.show();
-        
+
         // Automatically close the modal after 5 seconds when hovered over
         setTimeout(function() {
             modal.hide();

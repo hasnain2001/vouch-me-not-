@@ -4,44 +4,11 @@
 @endsection
 @section('main-content')
 
-<style>
-        .category-list {
-            display: flex;
-            flex-wrap: wrap;
-            border: 2px dotted;
-            color: #615959;
-           
-        }
-        .category-item {
-            flex: 1 1 15%;
-            margin-bottom: 5px;
-            text-align: center;
-            padding: 20px;
 
-        }
-        .category-item img {
-            width: 70px;
-            height:auto;
-            border-radius: 10%;
-        }
-        .category-item h5 {
-            margin-top: 10px;
-        }
-        @media (max-width: 767.98px) {
-            .category-item {
-                flex: 0 1 48%;
-            }
-        }
-        @media (max-width: 575.98px) {
-            .category-item {
-                flex: 0 1 50%;
-            }
-        }
-</style>
 <div class="container">
     <div class="container">
         <h1 class="fw-bold home_ts_h2 text-center">Latest Discount Codes & Promo Codes From Popular Stores</h1>
-      
+
         <div class="slider-wrapper">
             <button id="prev-slide" class="slide-button"></button>
             <ul class="image-list">
@@ -62,7 +29,7 @@
             </div>
         </div>
     </div>
-  
+
 </div>
 
 
@@ -72,11 +39,11 @@
 <hr>
 
 <div class="container ">
- 
+
         <div class="col-md-15">
-          
+
             <h3 class="text-center">Today's Top Trending Coupons & Voucher Codes</h3></div>
-          
+
 <div class="row">
     @foreach ($Coupons as $coupon)
     <div class="col-md-4 mb-5">
@@ -87,15 +54,22 @@
                     $store = App\Models\Stores::where('name', $coupon->store)->first();
                     @endphp
                     @if ($store && $store->store_image)
-                    <img src="{{ asset('uploads/stores/' . $store->store_image) }}" class="store-image" alt="{{ $store->name }} Logo" >
+                    <img src="{{ asset('uploads/stores/' . $store->store_image) }}" class="store-image" alt="{{ $store->name }} Logo" style="    width: 100%;
+    height: 200px; /* Set a fixed height or adjust as needed */
+    object-fit: cover; /* Ensures the image covers the entire container */" >
                     @else
                     <span class="no-image-placeholder">No Logo Available</span>
                     @endif
                 </div>
-                <h5 class="card-title coupon-title ">{{ $coupon->store }}</h5>
-                <span class="card-title coupon-title ">{{ $coupon->name }}</span>
-             
-                
+                <p class="card-name ">{{ $coupon->store }}</p>
+                <h5 class="font-italic font-weight-20 ">{{ $coupon->name }}</h5>
+
+
+           <p class="coupon-created-at">{{ $coupon->created_at->format('M d, Y') }}</p>
+
+
+
+
                 <div class="coupon-buttons">
                     @if ($coupon->code)
                     <a href="#" class="btnhome" onclick="openCouponInNewTab('{{ $coupon->destination_url }}', '{{ $coupon->id }}')">Get Code</a>
@@ -164,7 +138,7 @@
   <h2 class="fw-bold home_ts_h2 text-center">Shopping Hacks & Savings Tips & Tricks</h2>
 </div>
 
- 
+
     <div class="carousel-inner bg-light">
       @foreach ($blogs->chunk(2000) as $chunk)
         <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
@@ -189,8 +163,8 @@
         </div>
       @endforeach
     </div>
-  
-  
+
+
   <hr>
     </div></div>
     <div class="container">
@@ -204,14 +178,14 @@
                     <div class="card-header" id="headingOne">
                       <h2 class="mb-0">
                         <button class="btn btn-link btn-block text-left text-dark" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                          How do I use coupons on BudgetHeaven?
+                          How do I use coupons on Vouchmenot?
                         </button>
                       </h2>
                     </div>
-                
+
                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                       <div class="card-body">
-                        To use coupons on BudgetHeaven, simply browse through our available coupons and click on the "Get Deal" button. This will reveal the coupon code, which you can then apply at checkout on the store's website .
+                        To use coupons on Vouchmenot, simply browse through our available coupons and click on the "Get Deal" button. This will reveal the coupon code, which you can then apply at checkout on the store's website .
                       </div>
                     </div>
                   </div>
@@ -219,7 +193,7 @@
                     <div class="card-header" id="headingTwo">
                       <h2 class="mb-0">
                         <button class="btn btn-link btn-block text-left collapsed text-dark" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                          Are the coupons on BudgetHeaven verified?
+                          Are the coupons on Vouchmenot verified?
                         </button>
                       </h2>
                     </div>
@@ -231,9 +205,9 @@
                   </div>
                   <div class="card">
                     <div class="card-header" id="headingThree">
-                      <h2 class="mb-0"> 
+                      <h2 class="mb-0">
                         <button class="btn btn-link btn-block text-left collapsed text-dark" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                          Can I submit a coupon to BudgetHeaven?
+                          Can I submit a coupon to Vouchmenot?
                         </button>
                       </h2>
                     </div>
@@ -245,9 +219,9 @@
                   </div>
                   <div class="card">
                     <div class="card-header" id="headingFour">
-                      <h2 class="mb-0"> 
+                      <h2 class="mb-0">
                         <button class="btn btn-link btn-block text-left collapsed text-dark" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                          How often are new coupons added to BudgetHeaven?
+                          How often are new coupons added to Vouchmenot?
                         </button>
                       </h2>
                     </div>
@@ -257,24 +231,24 @@
                       </div>
                     </div>
                   </div>
-                  
+
                   <div class="card">
                     <div class="card-header" id="headingFive">
-                      <h2 class="mb-0"> 
+                      <h2 class="mb-0">
                         <button class="btn btn-link btn-block text-left collapsed text-dark" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                          Is BudgetHeaven free to use?
+                          Is Vouchmenot free to use?
                         </button>
                       </h2>
                     </div>
                     <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
                       <div class="card-body">
-                        Yes, BudgetHeaven is completely free for users. You can browse and use coupons without any subscription fees or hidden charges. We are committed to helping you save money on your online purchases.
+                        Yes, Vouchmenot is completely free for users. You can browse and use coupons without any subscription fees or hidden charges. We are committed to helping you save money on your online purchases.
                       </div>
                     </div>
                   </div>
-                  
+
                 </div>
-           
+
               </div>
             </div>
           </div>

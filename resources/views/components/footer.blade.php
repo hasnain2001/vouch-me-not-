@@ -7,9 +7,12 @@
   <title>footer</title>
   <style>
     footer{
-      background: rgba(5, 63, 36);
-    
-     
+        background-image: url('/images/purple1.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+
     }
 
     .links{
@@ -50,7 +53,7 @@ max-height: 150px;
             <div class="row">
                 <!-- Logo Section -->
                 <div class="col-md-2">
-                    <img src="{{ asset('images/logo-1.jpeg') }}" alt="Logo" class="logo img-fluid" >
+                    <img src="{{ asset('images/icons.png') }}" alt="Logo" class="logo img-fluid" >
                 </div>
                 <!-- About Us Section -->
                 <div class="col-md-4 mb-6 mb-md-0">

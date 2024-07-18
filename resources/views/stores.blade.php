@@ -6,14 +6,14 @@ header("X-Robots-Tag:index, follow");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Deals69 - Best Deals and Discounts |Stores</title>
+   <title>VouchMeNot - Best Deals and Discounts |Stores</title>
      <meta name="description" content="Score incredible savings on top brands with Deals69! Electronics, fashion, home goods & more. Start saving today!">
  <meta name="keywords" content="deals, discounts, coupons, savings, affiliate marketing">
 
   <meta name="author" content="John Doe">
  <meta name="robots" content="index, follow">
 
-<link rel="canonical" href="https://deals69.com/stores">
+<link rel="canonical" href="https://vouchmenot.com/stores">
      <link rel="icon" href="{{ asset('images/icons.png') }}" type="image/x-icon">
     <!-- Styles -->
 
@@ -24,10 +24,10 @@ header("X-Robots-Tag:index, follow");
 </style>
 </head>
 <body >
-    
+
     <x-navbar/>
 
-   
+
     <ul class="pagination justify-content-center my-pagination">
         @foreach(range('A', 'Z') as $letter)
             <li class="page-item">
@@ -35,8 +35,8 @@ header("X-Robots-Tag:index, follow");
             </li>
         @endforeach
     </ul>
-    
-     
+
+
 
 <div class="container">
     <p class="h5 m-0">Total stores: <span class="fw-bold">{{ $stores->total() }}</span></p>
@@ -67,13 +67,13 @@ header("X-Robots-Tag:index, follow");
                     @endif
                         <div class="store-info p-3">
                             <h5 class="store-name text-white">{{ $store->name ?: "Title not found" }}</h5>
-                           
+
                         </div>
                     </a>
                 </div>
             @endforeach
         @endif
-    </div> 
+    </div>
 </div>
 <x-footer/>
 <!-- Add JavaScript for touch events -->
@@ -81,14 +81,14 @@ header("X-Robots-Tag:index, follow");
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const storeCards = document.querySelectorAll('.store-card');
-        
+
         storeCards.forEach(card => {
             card.addEventListener('touchstart', function() {
                 storeCards.forEach(c => c.classList.remove('active'));
                 card.classList.add('active');
             });
         });
-    
+
         document.addEventListener('touchstart', function(e) {
             if (!e.target.closest('.store-card')) {
                 storeCards.forEach(card => card.classList.remove('active'));
