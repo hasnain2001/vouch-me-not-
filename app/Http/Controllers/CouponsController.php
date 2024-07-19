@@ -8,9 +8,40 @@ use App\Models\Stores;
 
 class CouponsController extends Controller
 {
+
+
+
+
+    public function openCoupon($couponId)
+    {
+        $coupon = Coupons::find($couponId);
+        if ($coupon) {
+            // Increment click count
+            $coupon->clicks++;
+            $coupon->save();
+
+            // Assuming you have a route named 'store.detail' that shows the store detail page
+            return redirect()->route('store.detail', ['id' => $coupon->store_id]);
+        }
+        // Handle case where coupon is not found
+        return redirect()->back()->with('error', 'Coupon not found.');
+    }
+
+    public function updateClicks(Request $request)
+    {
+        $couponId = $request->input('coupon_id');
+        $coupon = Coupons::find($couponId);
+        if ($coupon) {
+            $coupon->clicks++;
+            $coupon->save();
+            return redirect()->back()->with('success', 'Coupon Click added');
+        }
+        return response()->json(['success' => false, 'message' => 'Coupon not found.']);
+    }
+
 public function coupon(Request $request) {
     if ($request->ajax()) {
-        $coupons = Coupons::all(); 
+        $coupons = Coupons::all();
         return response()->json($coupons);
     }
 
@@ -19,7 +50,7 @@ public function coupon(Request $request) {
     return view('admin.coupons.index', compact('coupons'));
 }
 
-    
+
 
 public function update(Request $request)
 {
@@ -57,7 +88,7 @@ public function update(Request $request)
 
         return redirect()->back()->with('success', 'Coupon Created Successfully');
     }
-    
+
     public function edit_coupon($id) {
         $coupons = Coupons::find($id);
         $stores = Stores::all();
@@ -85,7 +116,7 @@ public function update(Request $request)
         Coupons::find($id)->delete();
         return redirect()->back()->with('success', 'Coupon Deleted Successfully');
     }
-        
+
 public function deleteSelected(Request $request)
 {
     $couponIds = $request->input('selected_coupons');

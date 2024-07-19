@@ -91,7 +91,7 @@ Route::controller(BlogController::class)->group(function () {
     // Route for blog page
 Route::get('/blogs',  'blog_home')->name('blog');
 Route::get('/blogs/{slug}',  'blog_show')->name('blog-details');
-  
+
 });
 
 Route::post('/redirect', [HomeController::class, 'handleRedirect'])->name('coupon.redirect');
@@ -103,8 +103,8 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/stores/{slug}', 'StoreDetails')->name('store_details');
     Route::get('/categories', 'categories')->name('categories');
     Route::get('/categories/{title}', 'viewcategory')->name('related_category');
-  
-  
+
+
 });
 
 Route::get('/dashboard', function () {
@@ -151,6 +151,11 @@ Route::controller(NetworksController::class)->prefix('admin')->group(function ()
 });
 
 // Coupons Routes Begin
+
+
+Route::get('coupons', [CouponsController::class, 'index'])->name('coupons.index');
+Route::post('/update-clicks', [CouponsController::class, 'updateClicks'])->name('update.clicks');
+Route::get('/clicks/{couponId}', [CouponsController::class, 'openCoupon'])->name('open.coupon');
 
 
 
