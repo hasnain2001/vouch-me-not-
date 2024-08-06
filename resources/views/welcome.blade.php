@@ -25,7 +25,11 @@ header("X-Robots-Tag:index, follow");
 
 
  <style>
-
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color:#eeeeee;
+}
 .carousel {
     position: relative;
     width: 100%;

@@ -4,10 +4,25 @@
 @endsection
 @section('main-content')
 
+<style>
 
+    .hr-line{
+       flex-wrap: wrap;
+        color: rgb(24, 22, 24);
+        border: 1px dotted ;
+
+    }
+    .heading-1{
+        color: #704c9f;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 20.112px;
+        padding: 0px 0px 3px;
+    }
+</style>
 <div class="container">
     <div class="container">
-        <h1 class="fw-bold home_ts_h2 text-center">Latest Discount Codes & Promo Codes From Popular Stores</h1>
+        <h1 class="heading-1">Latest Discount Codes & Promo Codes From Popular Stores</h1>
+<hr class="hr-line">
 
         <div class="slider-wrapper">
             <button id="prev-slide" class="slide-button"></button>
@@ -36,14 +51,14 @@
 
 
 <br>
-<hr>
+
 
 <div class="container ">
 
         <div class="col-md-15">
 
-            <h3 class="text-center">Today's Top Trending Coupons & Voucher Codes</h3></div>
-
+            <h3 class="heading-1">Today's Top Trending Coupons & Voucher Codes</h3></div>
+            <hr class="hr-line">
 <div class="row">
     @foreach ($Coupons as $coupon)
     <div class="col-md-4 mb-5">

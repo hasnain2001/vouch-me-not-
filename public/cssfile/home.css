@@ -31,7 +31,7 @@
             display: flex;
             cursor: pointer;
             font-size: 2.2rem;
-            background: #000;
+            background: #6d1568;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
@@ -39,7 +39,7 @@
         }
 
         .carousel-wrapper .slide-button:hover {
-            background: #404040;
+            background: #6a096d;
         }
 
         .carousel-wrapper .slide-button#prev-slide {
@@ -156,7 +156,7 @@
 
         .btnhome:hover {
             color:white;
-          background-color: #135e10;
+          background-color: #6a096d;
           transform: scale(1.05);
         }
 
@@ -215,7 +215,7 @@
     display: flex;
     cursor: pointer;
     font-size: 2.2rem;
-    background:#053f24;
+    background:#420475;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
@@ -223,7 +223,7 @@
 }
 
 .slider-wrapper .slide-button:hover {
-    background: #404040;
+    background: #830fa0;
 }
 
 .slider-wrapper .slide-button#prev-slide {
