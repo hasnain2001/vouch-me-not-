@@ -49,12 +49,12 @@
                                     <input type="url" class="form-control" name="destination_url" id="destination_url" required>
                                 </div>
                                 <div class="form-group">
-                                   
+
                                    <div class="form-group">
     <label for="category">Category <span class="text-danger">*</span></label>
     <select name="category" id="category" class="form-control">
         <option value="" disabled selected>--Select Category--</option>
-        @foreach($categories as $category) 
+        @foreach($categories as $category)
             <option value="{{ $category->title }}">{{ $category->title }}</option>
         @endforeach
     </select>
@@ -75,7 +75,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="meta_description">Meta Description</label>
-                                    <textarea name="meta_description" id="meta_description" class="form-control" cols="30" rows="5" style="resize: none;"></textarea>
+                                    <textarea name="meta_description" id="meta_description" class="form-control" cols="20" rows="5" style="resize: none;"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -97,7 +97,7 @@
                                     <label for="network">Network <span class="text-danger">*</span></label>
                                     <select name="network" id="network" class="form-control">
                                         <option value="" disabled selected>--Select Network--</option>
-                                        @foreach($networks as $network) 
+                                        @foreach($networks as $network)
                                             <option value="{{ $network->title }}">{{ $network->title }}</option>
                                         @endforeach
                                     </select>
@@ -106,13 +106,16 @@
                                     <label for="store_image">Store Image <span class="text-danger">*</span></label>
                                     <input type="file" class="form-control" name="store_image" id="store_image" required>
                                 </div>
+
+                            </div>
+                            <div class="col-12">
+                                <button type="reset" class="btn btn-light">Reset</button>
+                                <button type="submit" class="btn btn-primary">Save</button>
+                                <a href="{{ route('admin.store') }}" class="btn btn-secondary">Cancel</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-primary">Save</button>
-                        <a href="{{ route('admin.store') }}" class="btn btn-secondary">Cancel</a>
-                    </div>
+
                 </div>
             </form>
         </div>

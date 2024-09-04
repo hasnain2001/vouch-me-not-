@@ -23,13 +23,9 @@ header("X-Robots-Tag:index, follow");
    <link rel="stylesheet" href="{{ asset('bootstrap-4.6.2-dist/css/bootstrap.min.css') }}">
 
 
-
+<meta name="google-site-verification" content="dF1EWrRBkjLPczO3-SmGeLGvhbpzMFzSBE237W9gMk4" />
  <style>
-body{
-    margin: 0px;
-    padding: 0px;
-    background-color:#eeeeee;
-}
+
 .carousel {
     position: relative;
     width: 100%;
@@ -48,7 +44,7 @@ body{
 
   .slider  {
     width: 100%;
-    height: 500px;
+    height: auto;
     max-height:600px;
 
   }
@@ -104,43 +100,54 @@ body{
 
   }
   }
+  .custom-indicators li {
+    background-color:white;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+}
+
+.custom-indicators li.active {
+    background-color: #333;
+}
+
 
  </style>
   </head>
   <body>
-
-<x-navbar/>
-
-
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="6000">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="{{ asset('images/caraosel.png.png') }}" class="slider d-block w-100" alt="...">
+<nav>
+    @include('components.navbar')
+</nav>
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
-    <div class="carousel-item">
-      <img src="{{ asset('images/caraosel-1.png') }}" class="slider d-block w-100" alt="...">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{{ asset('images/caraosel-1.png.jpeg') }}" class="slider " alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="{{ asset('images/caraosel-2.png.jpeg') }}" class="slider " alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="{{ asset('images/caraosel-3.jpeg') }}" class="slider "alt="...">
+          </div>
+            <div class="carousel-item">
+            <img src="{{ asset('images/caraosel-4.jpeg') }}" class="slider" alt="...">
+          </div>
     </div>
-    <div class="carousel-item">
-      <img src="{{ asset('images/caraosel-2.png') }}" class="slider d-block w-100" alt="...">
-    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
   </div>
 
-  <button class="carousel-control-prev" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-target="#carouselExampleIndicators" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </button>
-</div>
 
 <hr>
 
@@ -152,8 +159,6 @@ body{
 <x-footer/>
 
 
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
 <script>
         let currentSlide = 0;
@@ -317,8 +322,5 @@ $(document).ready(function() {
         }
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
   </body>
 </html>

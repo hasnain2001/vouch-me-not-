@@ -92,7 +92,6 @@ max-height: 150px;
         </div>
     </section>
 </footer>
-
-
+<script src="{{ asset('bootstrap-5.0.2-dist/js/bootstrap.min.js') }}"></script>
 </body>
 </html>
