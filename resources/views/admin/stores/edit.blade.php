@@ -16,12 +16,25 @@
     <section class="content">
         <div class="container-fluid">
             @if(session('success'))
-                <div class="alert alert-success alert-dismissable">
-                    <i class="fa fa-ban"></i>
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <div class="alert alert-success alert-dismissable d-flex align-items-center" style="background-color: #d4edda; color: #155724; border-color: #c3e6cb;">
+                <i class="fa fa-check-circle" style="font-size: 1.5em; margin-right: 10px;"></i>
+                <div>
                     <b>{{ session('success') }}</b>
                 </div>
-            @endif
+                <button type="button" class="close ms-auto" data-dismiss="alert" aria-hidden="true" style="background: none; border: none; font-size: 1.5em; color: #155724;">×</button>
+            </div>
+        @endif
+
+        @if(session('warning'))
+            <div class="alert alert-warning alert-dismissible fade show d-flex align-items-center" role="alert" style="background-color: #fff3cd; color: #856404; border-color: #ffeeba;">
+                <i class="fa fa-exclamation-triangle" style="font-size: 1.5em; margin-right: 10px;"></i>
+                <div>
+                    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                </div>
+                <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close" style="background: none; border: none; font-size: 1.5em; color: #856404;"></button>
+            </div>
+        @endif
+
             <form name="UpdateStore" id="UpdateStore" method="POST" enctype="multipart/form-data" action="{{ route('admin.store.update', $stores->id) }}">
                 @csrf
                 <div class="row">
@@ -52,7 +65,7 @@
                                     <label for="category">Category <span class="text-danger">*</span></label>
                                     <select name="category" id="category" class="form-control">
                                         <option value="" disabled selected>{{ $stores->category }}</option>
-                                        @foreach($categories as $category) 
+                                        @foreach($categories as $category)
                                             <option value="{{ $category->title }}">{{ $category->title }}</option>
                                         @endforeach
                                     </select>
@@ -80,7 +93,11 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="status">Status <span class="text-danger">*</span></label><br>
+                                    <label for="name">Top Store <span class="text-danger">*</span></label>
+                                    <input type="number" class="form-control" name="top_store" id="top_store" value="{{ $stores->top_store }}" min="0"  >
+                                </div>
+                                <div class="form-group">
+                                     <label for="status">Status <span class="text-danger">*</span></label><br>
                                     <input type="radio" name="status" id="enable" {{ $stores->status == 'enable' ? 'checked' : '' }} value="enable">&nbsp;<label for="enable">Enable</label>
                                     <input type="radio" name="status" id="disable" {{ $stores->status == 'disable' ? 'checked' : '' }} value="disable">&nbsp;<label for="disable">Disable</label>
                                 </div>
@@ -92,7 +109,7 @@
                                     <label for="network">Network <span class="text-danger">*</span></label>
                                     <select name="network" id="network" class="form-control">
                                         <option value="" disabled selected>{{ $stores->network }}</option>
-                                        @foreach($networks as $network) 
+                                        @foreach($networks as $network)
                                             <option value="{{ $network->title }}">{{ $network->title }}</option>
                                         @endforeach
                                     </select>

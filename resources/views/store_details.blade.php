@@ -8,28 +8,171 @@ header("X-Robots-Tag:index, follow");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @if(isset($store) && is_object($store))
   <title>{!! $store->title !!}</title>
-  <link rel="canonical" href="https://deals69.com/stores/{{ Str::slug($store->name) }}">
+  <link rel="canonical" href="https://https://vouchmenot.com/stores/{{ Str::slug($store->name) }}">
   <meta name="description" content="{!! $store->meta_description !!}">
   <meta name="keywords" content="{!! $store->meta_keyword !!}">
   <meta name="author" content="Najeeb">
   <meta name="robots" content="index, follow">
   @else
-  <link rel="canonical" href="https://budgetheaven.com/store/">
+  <link rel="canonical" href="https://vouchmenot.com/stores">
   @endif
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="{{ asset('images/icons.png') }}" type="image/x-icon">
-    <link href="{{ asset('bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{asset('cssfile/storedetail.css')}}">
     <style>
+.card-hover,
+.coupon-card {
+    flex-direction: column;
+    display: flex;
+}
+.container,
+.custom-font {
+    font-family: viga, sans-serif;
+}
+.container {
+    font-weight: 500;
+    color: #868686;
+}
+.card-hover {
+    border: 2px solid #ddd;
+    transition: border-color 0.3s;
+    height: 100%;
+    justify-content: space-between;
+}
+.card-hover:hover {
+    border-color: #7c3ac7;
+}
 
+.btn-hover {
+
+    transition: background-color 0.3s, color 0.3s;
+}
+.btn-hover:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+.coupon-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    margin: auto;
+}
+.store-image {
+    max-width: 100px;
+    height: 100px;
+}
+.coupon-card {
+    height: 100%;
+}
+.coupon-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+.coupon-details {
+    flex-grow: 1;
+}
+.coupon-action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.buttm {
+    width: 10px;
+    height: 5px;
+    padding: 5px;
+}
+.copy-btn {
+    margin-top: 10px;
+}
+.copy-confirmation {
+    margin-top: 30px;
+    color: green;
+}
+.custom-font {
+    font-weight: 700;
+    color: #878787;
+}
+.des-font,
+.used {
+    font-family: "Open Sans", sans-serif;
+}
+.des-font {
+    font-weight: 500;
+    color: #999;
+}
+.used {
+    font-weight: 800;
+    font-size: 12px;
+}
+.btn-sort a {
+    background-color: #7c3ac7;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3), -3px -3px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    margin-right: 10px; /* Add margin between buttons */
+}
+
+.btn-sort a:last-child {
+    margin-right: 0; /* Remove margin from the last button */
+}
+
+.btn-sort a:hover {
+    background-color: purple;
+    color: black;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5), -5px -5px 15px rgba(0, 0, 0, 0.5);
+}
+.get {
+    background: linear-gradient(135deg, #7c3ac7, #9d50bb);
+    color: #ffffff;
+    padding: 5px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3), -3px -3px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    margin-right: 10px; /* Add margin between buttons */
+    display: inline-block;
+    font-size: 16px;
+}
+
+.get:hover {
+    background: linear-gradient(135deg, #9d50bb, #e9e6ec);
+    color: wheat;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(124, 58, 199, 0.7), 0 0 30px rgba(124, 58, 199, 0.5);
+}
+.getcode {
+    background: linear-gradient(100deg, #3a0874, #c8c3ca);
+    color: #ffffff;
+    padding: 5px 15px ;
+    border-radius: 25px 25px 25px 25px ;
+    text-decoration: none;
+
+
+    margin-right: 10px; /* Add margin between buttons */
+    display: inline-block;
+    font-size: 16px;
+}
+
+.getcode:hover {
+    background: linear-gradient(135deg, #9d50bb, #56189c);
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(124, 58, 199, 0.7), 0 0 30px rgba(124, 58, 199, 0.5);
+}
 
     </style>
 </head>
 <body>
+<nav>
+    @include('components.navbar')
+</nav>
 
-<x-component-name/>
 <br>
 
 
@@ -50,16 +193,16 @@ header("X-Robots-Tag:index, follow");
         @endif
     </div>
  <hr style="border:2px black dotted;">
-    <div class="btn-group" role="group" aria-label="Sort Coupons">
-            <a href="{{ url()->current() }}?sort=all" class=" btn get">All</a>
-            <a href="{{ url()->current() }}?sort=codes" class=" btn get">Codes</a>
-            <a href="{{ url()->current() }}?sort=deals" class=" btn get">Deals</a>
+    <div class=" btn-sort " role="group" aria-label="Sort Coupons">
+            <a href="{{ url()->current() }}" class="btn  ">All</a>
+            <a href="{{ url()->current() }}?sort=codes" class="btn ">Codes</a>
+            <a href="{{ url()->current() }}?sort=deals" class="btn ">Deals</a>
         </div>
 
     <div class="row">
         <div class="col-lg-3 mb-3">
             @if ($store)
-            <div class="cpn card card-hover">
+            <div class="cpn card">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-12 mb-2 text-center">
@@ -74,15 +217,15 @@ header("X-Robots-Tag:index, follow");
                                 @else
                                 <h5 style="margin-top: 0;">Store name not available</h5>
                                 @endif
-                                <div class="rating-stars">
+                                <div class="rating-stars text-warning">
                                     <i class="fas fa-star" data-rating="1"></i>
                                     <i class="fas fa-star" data-rating="2"></i>
                                     <i class="fas fa-star" data-rating="3"></i>
                                     <i class="fas fa-star" data-rating="4"></i>
-                                    <i class="fas fa-star" data-rating="5"></i>
+                                    <i class="fas fa-star text-dark" data-rating="5"></i>
                                 </div>
                                 @if ($store->description)
-                                <a href="{{ $store->url }}" target="_blank" class="get btn  btn-hover">Visit Store</a>
+                                <a href="{{ $store->url }}" target="_blank" class="get ">Visit Website</a>
                                 <p class="mt-2 mx-2 store_detail_description d-none d-md-block">{!! $store->description !!}</p>
                                 @endif
                             </div>
@@ -104,22 +247,37 @@ header("X-Robots-Tag:index, follow");
                     <br>
                     <p class="coupon-description des-font">{{ $coupon->description }}</p>
                      <hr style="border:2px black dotted;">
+                     @php
+                     // Get the current time in Karachi timezone
+                     $now = \Carbon\Carbon::now('Asia/Karachi');
+                     // Convert coupon's created_at to Karachi timezone
+                     $created_at = \Carbon\Carbon::parse($coupon->ending_date)->timezone('Asia/Karachi');
+                 @endphp
+
+<p class="text-right" style="color: {{ $created_at->isPast() ? 'red' : 'inherit' }};">
+    Ending Date:{{ $created_at->format('d M, Y') }}
+</p>
                 </div>
                 <div class="coupon-action text-center">
                     @if ($coupon->code)
-                    <a href="{{ $coupon->destination_url }}" target="_blank" class="get btn  btn-sm  btn-hover" id="getCode{{ $coupon->id }}" onclick="toggleCouponCode('{{ $coupon->id }}')">Coupon Code</a>
+                    <a href="{{ $coupon->destination_url }}" target="_blank" class="getcode " id="getCode{{ $coupon->id }}" onclick="toggleCouponCode('{{ $coupon->id }}')">Coupon Code</a>
                     <div class="coupon-card d-flex flex-column">
                         <span class="codeindex text-dark scratch" style="display: none;" id="codeIndex{{ $coupon->id }}">{{ $coupon->code }}</span>
                         <button class="btn btn-info text-white btn-sm copy-btn btn-hover d-none mt-2" id="copyBtn{{ $coupon->id }}" onclick="copyCouponCode('{{ $coupon->id }}')">Copy Code</button>
                         <p class="text-success copy-confirmation d-none mt-3" id="copyConfirmation{{ $coupon->id }}">Code copied!</p>
                     </div>
                     @else
-                    <a href="{{ $coupon->destination_url }}" onclick="countClicks('{{ $coupon->id }}')" class="get btn  btn-hover" target="_blank">Get Deal</a>
+  <a href="{{ $coupon->destination_url }}" onclick="updateClickCount('{{ $coupon->id }}')" class="get " target="_blank">Get Deal</a>
                     @endif
-
+                    <form method="post" action="{{ route('update.clicks') }}" id="clickForm">
+                        @csrf
+                        <input type="hidden" name="coupon_id" id="coupon_id">
+                    </form>
                 </div>
                        <p class="used font-weight-bold mt-2" id="output_{{ $coupon->id }}">Used By: {{ $coupon->clicks }}</p>
+
             </div>
+
         </div>
     </div>
     @endforeach
@@ -127,16 +285,15 @@ header("X-Robots-Tag:index, follow");
 
         </div>
     </div>
-    <form method="post" action="{{ route('update.clicks') }}" id="clickForm">
-        @csrf
-        <input type="hidden" name="coupon_id" id="coupon_id">
-    </form>
-    <br><br>
+
+
 </div>
 
 
 
-
+<footer>
+    @include('components.footer')
+</footer>
 
 <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script>
@@ -144,9 +301,6 @@ header("X-Robots-Tag:index, follow");
 function toggleCouponCode(couponId) {
     // Set the coupon ID in localStorage to remember the state
     localStorage.setItem('copiedCouponId', couponId);
-
-    document.getElementById('coupon_id').value = couponId;
-    document.getElementById('clickForm').submit();
 
     const codeElement = document.getElementById(`codeIndex${couponId}`);
     const copyButton = document.getElementById(`copyBtn${couponId}`);
@@ -158,6 +312,9 @@ function toggleCouponCode(couponId) {
         codeElement.style.display = 'none';
         copyButton.classList.add('d-none');
     }
+
+    // Update the click count via AJAX
+    updateClickCount(couponId);
 }
 
 // Check localStorage on page load to restore the state
@@ -167,14 +324,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const codeElement = document.getElementById(`codeIndex${copiedCouponId}`);
         const copyButton = document.getElementById(`copyBtn${copiedCouponId}`);
 
-        if (codeElement.style.display === 'none') {
-            codeElement.style.display = 'inline';
-            copyButton.classList.remove('d-none');
-        } else {
-            codeElement.style.display = 'none';
-            copyButton.classList.add('d-none');
-        }
+        codeElement.style.display = 'inline';
+        copyButton.classList.remove('d-none');
     }
+});
+
+// Clear localStorage on refresh
+window.addEventListener('beforeunload', function () {
+    localStorage.removeItem('copiedCouponId');
 });
 
 // Function to copy coupon code to clipboard
@@ -196,7 +353,23 @@ function copyCouponCode(couponId) {
         });
 }
 
-// Function to count clicks
+// Function to update click count via AJAX
+function updateClickCount(couponId) {
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '{{ route("update.clicks") }}', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.setRequestHeader('X-CSRF-TOKEN', '{{ csrf_token() }}');
+
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            console.log('Click count updated successfully.');
+        }
+    };
+
+    xhr.send('coupon_id=' + couponId);
+}
+
+// Function to count clicks (fallback if not using AJAX)
 function countClicks(couponId) {
     document.getElementById('coupon_id').value = couponId;
     document.getElementById('clickForm').submit();
@@ -205,4 +378,3 @@ function countClicks(couponId) {
 </script>
 </body>
 </html>
-

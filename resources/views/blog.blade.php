@@ -21,10 +21,10 @@ header("X-Robots-Tag:index, follow");
   <link rel="stylesheet" href="{{ asset('bootstrap-4.6.2-dist/css/bootstrap.min.css') }}">
   <!-- Custom CSS -->
 
-  
- 
+
+
   <style>
- 
+
     .blog-post {
       background-color: #fff;
       margin-bottom: 30px;
@@ -112,7 +112,7 @@ header("X-Robots-Tag:index, follow");
   <div class="row">
       <h1>Shopping Hacks & Savings Tips & Tricks</h1>
       <div class="col-md-8">
-          
+
           <!-- Blog posts -->
           <div class="row">
               @foreach ($blogs as $blog)
@@ -137,7 +137,7 @@ header("X-Robots-Tag:index, follow");
            <div class="container bg-light mt-3">
         <div class="row mt-3 justify-content-end">
           <div class="col-12">
-            {{ $blogs->links('pagination::bootstrap-4') }} </div>
+            {{ $blogs->links('vendor.pagination.bootstrap-5') }} </div>
         </div>
       </div>
 

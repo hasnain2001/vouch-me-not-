@@ -66,7 +66,7 @@
             <div class="cardi">
                 <div class="store-logo">
                     @php
-                    $store = App\Models\Stores::where('name', $coupon->store)->first();
+                    $store = App\Models\Stores::where('slug', $coupon->store)->first();
                     @endphp
                     @if ($store && $store->store_image)
                     <img src="{{ asset('uploads/stores/' . $store->store_image) }}" class="store-image" alt="{{ $store->name }} Logo" style="    width: 100%;
@@ -76,10 +76,9 @@
                     <span class="no-image-placeholder">No Logo Available</span>
                     @endif
                 </div>
-                <p class="card-name ">{{ $coupon->store }}</p>
                 <h5 class="font-italic font-weight-20 ">{{ $coupon->name }}</h5>
 
-
+                <p class="card-name ">{{ $coupon->description }}</p>
            <p class="coupon-created-at">{{ $coupon->created_at->format('M d, Y') }}</p>
 
 

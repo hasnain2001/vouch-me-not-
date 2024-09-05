@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{ asset('bootstrap-5.0.2-dist/css/bootstrap.min.css') }}">
     <style>
-          nav {
+          .navbar {
             background-image: url('/images/purple1.jpeg');
             background-size: cover;
             background-position: center;
@@ -93,6 +93,7 @@
                 width: 100%;
             }
         }
+        #myBtn,.loader{position:fixed}body{margin:0;padding:0}::-webkit-scrollbar{width:20px}::-webkit-scrollbar-track{box-shadow:inset 0 0 5px grey;border-radius:10px}::-webkit-scrollbar-thumb{background:#ad38e4;border-radius:10px}::-webkit-scrollbar-thumb:hover{background:#902cd3}.loader{width:120px;height:20px;background:linear-gradient(#000 0 0) 0/0 no-repeat #ddd;animation:2s linear infinite l1;top:50%;left:50%;transform:translate(-50%,-50%);z-index:9999}@keyframes l1{100%{background-size:100%}}#myBtn{display:none;bottom:20px;right:30px;z-index:99;border:none;outline:0;background-color:#8327ec;color:#fff;cursor:pointer;padding:15px;border-radius:10px;font-size:18px}#myBtn:hover{background-color:#555}
     </style>
 </head>
 <body>
@@ -132,6 +133,39 @@
           </div>
         </div>
       </nav>
+   <!-- Loader -->
+   <button onclick="topFunction()" id="myBtn" title="Go to top"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+    <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z"/>
+  </svg>
 
+   </button>
+   <div id="loader" class="loader"></div>
+
+   <script>
+     // Hide the loader once the page is fully loaded
+     window.addEventListener('load', function() {
+       var loader = document.getElementById('loader');
+       loader.style.display = 'none';
+     });
+
+    let mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+</script>
 </body>
 </html>

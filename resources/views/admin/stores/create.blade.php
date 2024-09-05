@@ -16,12 +16,20 @@
     <section class="content">
         <div class="container-fluid">
             @if(session('success'))
-                <div class="alert alert-success alert-dismissable">
-                    <i class="fa fa-ban"></i>
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    <b>{{ session('success') }}</b>
-                </div>
-            @endif
+            <div class="alert alert-success alert-dismissable">
+                <i class="fa fa-ban"></i>
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <b>{{ session('success') }}</b>
+            </div>
+        @endif
+
+        @if(session('warning'))
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
+
             <form name="CreateStore" id="CreateStore" method="POST" enctype="multipart/form-data" action="{{ route('admin.store.store') }}">
                 @csrf
                 <div class="row">
@@ -83,6 +91,10 @@
                     <div class="col-6">
                         <div class="card">
                             <div class="card-body">
+                                <div class="form-group">
+                                    <label for="name">Top Store <span class="text-danger">*</span></label>
+                                    <input type="number" class="form-control" name="top_store" id="top_store"  min="0"  >
+                                </div>
                            <div class="form-group">
     <label for="status">Status <span class="text-danger">*</span></label><br>
     <input type="radio" name="status" id="enable" value="enable" required>&nbsp;<label for="enable">Enable</label>

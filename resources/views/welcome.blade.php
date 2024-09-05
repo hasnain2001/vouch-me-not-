@@ -1,12 +1,9 @@
-
-<?php
-header("X-Robots-Tag:index, follow");
-?>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="{{ asset('images/icons.png') }}" type="image/x-icon">
 
     <link rel="canonical" href="https://vouchmenot.com">
@@ -16,16 +13,9 @@ header("X-Robots-Tag:index, follow");
 
     <meta name="robots" content="index, follow">
     <meta name="keywords" content="deals, discounts, coupons, savings, affiliate marketing">
-    <!-- Bootstrap CSS -->
-
     <link rel="stylesheet" href="{{ asset('cssfile/home.css') }}">
     <link rel="stylesheet" href="{{asset('cssfile/welcome.css')}}">
-   <link rel="stylesheet" href="{{ asset('bootstrap-4.6.2-dist/css/bootstrap.min.css') }}">
-
-
-<meta name="google-site-verification" content="dF1EWrRBkjLPczO3-SmGeLGvhbpzMFzSBE237W9gMk4" />
- <style>
-
+    <style>
 .carousel {
     position: relative;
     width: 100%;
@@ -44,41 +34,64 @@ header("X-Robots-Tag:index, follow");
 
   .slider  {
     width: 100%;
-    height: auto;
+    height: 500px;
     max-height:600px;
 
   }
 
   .carousel-control-prev,
-  .carousel-control-next {
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color:rgb(5, 5, 5);
-    border: none;
-    color: #fff;
-    font-size: 34px;
-    cursor: pointer;
-    border-radius: 50%;
-    user-select: none;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-  }
+        .carousel-control-next {
+            width: 30px;
+            height: 40px;
+            top: 40%;
+            transform: translateY(850%);
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
 
-  .carousel-control-prev:hover,
-  .carousel-control-next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+        .carousel-control-prev {
+            left: 10px;
+        }
 
-  }
+        .carousel-control-next {
+            right: 10px;
+        }
 
-  .carousel-control-prev {
-    left: 10px;
-  }
+        .carousel-control-prev:hover,
+        .carousel-control-next:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
 
-  .carousel-control-next {
-    right: 10px;
-  }
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-image: none;
+        }
+
+        .carousel-control-prev-icon::before,
+        .carousel-control-next-icon::before {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+        }
+
+        .carousel-control-prev-icon::before {
+            border-right: 12px solid #fff;
+        }
+
+        .carousel-control-next-icon::before {
+            border-left: 12px solid #fff;
+        }
 
   /* Responsive adjustments */
   @media (max-width: 768px) {
@@ -111,131 +124,46 @@ header("X-Robots-Tag:index, follow");
     background-color: #333;
 }
 
+    </style>
+</head>
+<body>
 
- </style>
-  </head>
-  <body>
-<nav>
-    @include('components.navbar')
-</nav>
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="{{ asset('images/caraosel-1.png.jpeg') }}" class="slider " alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="{{ asset('images/caraosel-2.png.jpeg') }}" class="slider " alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="{{ asset('images/caraosel-3.jpeg') }}" class="slider "alt="...">
-          </div>
+    <x-navbar/>
+
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{{ asset('images/caraosel-1.png.jpeg') }}" class="d-block w-100" alt="...">
+            </div>
             <div class="carousel-item">
-            <img src="{{ asset('images/caraosel-4.jpeg') }}" class="slider" alt="...">
-          </div>
+                <img src="{{ asset('images/caraosel-2.png.jpeg') }}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{{ asset('images/caraosel-3.jpeg') }}" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="{{ asset('images/caraosel-4.jpeg') }}" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
 
-
-<hr>
 
       {{-- Main Content Here --}}
-@yield('main-content')
-{{-- Main Content Here --}}
+      @yield('main-content')
+      {{-- Main Content Here --}}
 
-<hr>
-<x-footer/>
-
-
-
+      <hr>
+      <x-footer/>
 <script>
-        let currentSlide = 0;
-
-function showSlide(index) {
-  const slides = document.querySelectorAll('.carousel-item');
-  if (index >= slides.length) {
-    currentSlide = 0;
-  } else if (index < 0) {
-    currentSlide = slides.length - 1;
-  } else {
-    currentSlide = index;
-  }
-  const offset = -currentSlide * 100;
-  document.querySelector('.carousel-inner').style.transform = `translateX(${offset}%)`;
-}
-
-function nextSlide() {
-  showSlide(currentSlide + 1);
-}
-
-function prevSlide() {
-  showSlide(currentSlide - 1);
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.carousel-control-prev, .carousel-control-next').forEach(button => {
-    button.addEventListener('click', () => {
-      setTimeout(() => {
-        showSlide(currentSlide);
-      }, 200); // Small delay to ensure the slide index updates
-    });
-  });
-});
-</script>
-<script>
-
-$(document).ready(function() {
-    $('#searchInput').autocomplete({
-        source: function(request, response) {
-            $.ajax({
-                url: '{{ route("search") }}',
-                dataType: 'json',
-                data: {
-                    query: request.term
-                },
-                success: function(data) {
-                    response(data.stores);
-                }
-            });
-        },
-
-    });
-});
-
-    function copyCoupon(code) {
-        navigator.clipboard.writeText(code)
-            .then(() => {
-                alert("Coupon code copied!");
-            })
-            .catch((error) => {
-                console.error("Failed to copy: ", error);
-            });
-    }
-
-    function openCouponInNewTab(url, couponId) {
-        window.open(url, '_blank');
-        var modal = new bootstrap.Modal(document.getElementById('codeModal' + couponId));
-        modal.show();
-
-        // Automatically close the modal after 5 seconds when hovered over
-        setTimeout(function() {
-            modal.hide();
-        }, 5000); // 5000 milliseconds = 5 seconds
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('DOMContentLoaded', function() {
         const imageList = document.querySelector('.slider-wrapper .image-list');
         const slideButtons = document.querySelectorAll('.slider-wrapper .slide-button');
         const sliderScrollbar = document.querySelector('.container .slider-scrollbar');
@@ -321,6 +249,5 @@ $(document).ready(function() {
             modal.show();
         }
 </script>
-
-  </body>
+</body>
 </html>
