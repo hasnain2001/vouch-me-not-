@@ -27,6 +27,18 @@
                         <b>{{ session('success') }}</b>
                     </div>
                 @endif
+                <span class="text-title">Selected BY Store Name</span>
+                <br>
+                <form method="GET" action="{{ route('admin.coupon') }}">
+                    <select class="form-select form-select-lg mb-3" aria-label="Large select example" name="store" id="category-select" onchange="this.form.submit()">
+                        <option value="">All Coupon</option> <!-- Option to select all stores -->
+                        @foreach($couponstore as $store)
+                            <option value="{{ $store->store }}" {{ $selectedCoupon == $store->store ? 'selected' : '' }} class="text-bold">
+                                {{ $store->store }}
+                            </option>
+                        @endforeach
+                    </select>
+                </form>
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
@@ -129,7 +141,7 @@
         </section>
 
     </div>
-    
+
 <script>
     // JavaScript to handle the select all functionality
     document.getElementById('select-all').addEventListener('click', function(event) {

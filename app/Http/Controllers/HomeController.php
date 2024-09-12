@@ -49,7 +49,7 @@ class HomeController extends Controller
         return view('blog-details', compact('blog','chunks'));
         }
       public function index() {
-    $stores = Stores::latest()->paginate(15);
+    $stores = Stores::latest()->paginate(17);
     $categories = Categories::paginate(12);
     $blogs = Blog::latest()->paginate();
 
@@ -98,7 +98,7 @@ public function topStores(Request $request)
         $storesQuery->where('name', 'like', $letter.'%');
     }
 
-    $stores = $storesQuery->orderBy('name')->paginate(1000);
+    $stores = $storesQuery->orderBy('name')->paginate(100);
 
     return view('stores', compact('stores'));
 }

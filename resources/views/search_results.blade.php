@@ -9,9 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <!-- Bootstrap CSS v5.2.1 -->
     <link rel="stylesheet" href="{{ asset('bootstrap-4.6.2-dist/css/bootstrap.min.css') }}">
-
-
-
+    <link rel="stylesheet" href="{{ asset('cssfile/store.css') }}">
 <meta name='impact-site-verification' value='de4ec733-7974-4b7d-a7aa-611819cb6e0f'>
 <style>
     .card {
@@ -37,37 +35,40 @@
 
     <br>
     <div class="container">
+        <p class="h5 m-0">Total stores: <span class="fw-bold">{{ $stores->total() }}</span></p>
         <!-- Display Stores -->
         <h3 class="text-center my-4">Search Results</h3>
-        <div class="main_content">
-            <div class="container">
-                <div class="row mt-3">
-                    @if (isset($stores) && $stores->isEmpty())
-                        <div class="col-12">
-                            <div class="alert alert-danger" role="alert">
-                                <h4 class="alert-heading">Store Not Found!</h4>
-                                <hr>
-                                <p class="mb-0">Please check the store name and try again.</p>
-                            </div>
-                        </div>
-                    @elseif(isset($stores))
-                        @foreach ($stores as $store)
-                            <div class="col-md-4 col-sm-6 mb-4">
-                                <div class="card shadow h-100">
-                                    <div class="card-body text-center">
-                                        @if ($store->store_image)
-                                            <img src="{{ asset('uploads/stores/' . $store->store_image) }}" class="img-fluid rounded" alt="{{ $store->name }}">
-                                        @else
-                                            <img src="{{ asset('front/assets/images/no-image-found.jpg') }}" class="img-fluid rounded" alt="No Image Found">
-                                        @endif
-                                        <h5 class="card-title mt-3">{{ isset($store->name) ? $store->name : "Title not found" }}</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    @endif
+        <div class="card-list">
+            @if ($stores->isEmpty())
+                <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">Sorry!</h4>
+                    <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+                    <hr>
+                    <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
                 </div>
-            </div>
+            @else
+                @foreach ($stores as $store)
+                    <div class="store-card shadow-sm mb-4">
+                        <a href="{{ route('store_details', ['slug' => Str::slug($store->slug)]) }}" class="text-decoration-none">
+                            @if ($store->store_image)
+                            <img src="{{ asset('uploads/stores/' . $store->store_image) }}" class="card-img-top" alt="{{ $store->name }} Image">
+                        @else
+                            @if ($store->previous_image)
+                                <img src="{{ asset('uploads/stores/' . $store->previous_image) }}" class="card-img-top" alt="{{ $store->name }} Image">
+                            @else
+                                <div class="d-flex align-items-center justify-content-center vh-100 bg-light text-muted">
+                                    <i class="fas fa-store fa-3x"></i> <p class="ms-2">No image available</p>
+                                </div>
+                            @endif
+                        @endif
+                            <div class="store-info p-3">
+                                <h5 class="store-name text-white">{{ $store->name ?: "Title not found" }}</h5>
+
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            @endif
         </div>
         {{ $stores->links('vendor.pagination.bootstrap-5') }}
     </div>

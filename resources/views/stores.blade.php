@@ -40,8 +40,7 @@ header("X-Robots-Tag:index, follow");
 
 <div class="container">
     <p class="h5 m-0">Total stores: <span class="fw-bold">{{ $stores->total() }}</span></p>
-</div>
-<div class="container">
+
     <div class="card-list">
         @if ($stores->isEmpty())
             <div class="alert alert-success" role="alert">
@@ -74,6 +73,8 @@ header("X-Robots-Tag:index, follow");
             @endforeach
         @endif
     </div>
+
+{{ $stores->links('vendor.pagination.bootstrap-5') }}
 </div>
 <x-footer/>
 <!-- Add JavaScript for touch events -->

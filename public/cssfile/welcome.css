@@ -1,92 +1,78 @@
-
-  .faq-section {
-              background: white;
-              padding: 30px;
-              border-radius: 10px;
-              box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-          }
-          .faq-section h1 {
-              color: #343a40;
-              margin-bottom: 30px;
-          }
-          .card-header {
-              background-color: transparent;
-              border-bottom: 1px solid #dee2e6;
-          }
-          .card {
-              border: none;
-              margin-bottom: 10px;
-          }
-          .btn-link {
-              color: #007bff;
-              font-size: 18px;
-              font-weight: 500;
-              text-decoration: none;
-          }
-          .btn-link:hover {
-              text-decoration: underline;
-          }
-          .cardi {
-            margin: 5px;
-            padding:30px;
-              background-color: #f8f9fa;
-              border-top: 1px solid #dee2e6;
-              border-bottom-left-radius: 10px;
-              border-bottom-right-radius: 10px;
-              border: 1px dotted #343a40;
-          }
-          hr
-          {
-            border: 2px dotted;
-            color:#b5bdca;
-          }
-         /* homepage csss */
-         .category-list {
-            display: flex;
-            flex-wrap: wrap;
-            border: 2px dotted;
-            color: #615959;
-
-        }
-        .category-item {
-            flex: 1 1 15%;
-            margin-bottom: 5px;
-            text-align: center;
-            padding: 20px;
-
-        }
-        .category-item img {
-            width: 70px;
-            height:auto;
-            border-radius: 10%;
-        }
-        .category-item h5 {
-            margin-top: 10px;
-        }
-        @media (max-width: 767.98px) {
-            .category-item {
-                flex: 0 1 48%;
-            }
-        }
-        @media (max-width: 575.98px) {
-            .category-item {
-                flex: 0 1 50%;
-            }
-        }
-.coupon-created-at {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333; /* Adjust color as needed */
-    text-align: center; /* Align text center if desired */
-    background-color: #f0f0f0; /* Background color */
-    padding: 10px; /* Padding around the text */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle lift */
+.slider-img {
+    padding: 15px;
+    width: 100%;
+    flex: 1;
+    border: 4px solid transparent;
+    border-radius: 16px;
+    height: 500px;
+    max-height: 600px;
+    background: linear-gradient(to right, rgba(141, 19, 135, 0.8), rgba(222, 172, 235, 0.8));
+    background-clip: padding-box;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
-.card-name {
-    font-weight: 100;
+.custom-indicators li,
+.slider-next,
+.slider-prev {
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
 }
-
-
-
-
+.custom-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 7;
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+.custom-indicators li {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.custom-indicators li:hover {
+    background-color: #646464;
+    transform: scale(1.2);
+}
+.custom-indicators li.active {
+    background-color: #333 !important;
+    transform: scale(1.3) !important;
+}
+.slider-next,
+.slider-prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background-color: purple;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 10%;
+    z-index: 1;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.store-prev {
+    left: 10px;
+}
+.slider-next {
+    right: 10px;
+}
+.slider-next-icon,
+.slider-prev-icon {
+    font-size: 24px;
+}
+.slider-prev:hover,
+.store-next:hover {
+    background-color: rgba(238, 29, 245, 0.904);
+    transform: translateY(-50%) scale(1.1);
+}
+.slider-next:focus,
+.slider-prev:focus {
+    outline: 0;
+}

@@ -4,28 +4,21 @@
 @endsection
 @section('main-content')
 
-<style>
-    .store-image{
-      width: 100%;
-    height: 180px;
-
-    }
-</style>
-
 <div class="container">
+    <h1 class="heading-1">Latest Discount Codes & Promo Codes From Popular Stores</h1>
+    <br>
     <div id="storeCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             @foreach ($stores->chunk(6) as $key => $chunk)
                 <div class="carousel-item {{ $key === 0 ? 'active' : '' }}">
                     <div class="row">
                         @foreach ($chunk as $storeItem)
-                            <div class="col-md-2">
+                            <div class="col-6 col-md-2"> <!-- For mobile view use col-6, and for desktop use col-md-2 -->
                                 @php
-
                                 $storeUrl = $storeItem->slug
-                         ? route('store_details', ['slug' => Str::slug($storeItem->slug)])
-                         : '#';
-                 @endphp
+                                    ? route('store_details', ['slug' => Str::slug($storeItem->slug)])
+                                    : '#';
+                                @endphp
                                 <a href="{{ $storeUrl }}" class="text-dark text-decoration-none">
                                     <img class="img-fluid mb-2" src="{{ asset('uploads/stores/' . $storeItem->store_image) }}" alt="{{ $storeItem->name }}" loading="lazy" />
                                     <span class="fw-bold d-block text-center">{{ $storeItem->name }}</span>
@@ -36,17 +29,16 @@
                 </div>
             @endforeach
         </div>
-       <button class="store-prev" type="button" data-bs-target="#storeCarousel" data-bs-slide="prev">
-          <span class="store-prev-icon" aria-hidden="true"><i class="fa-solid fa-circle-left"></i></span>
-          <span class="visually-hidden">Previous</span>
+        <button class="store-prev" type="button" data-bs-target="#storeCarousel" data-bs-slide="prev">
+            <span class="store-prev-icon" aria-hidden="true"><i class="fa-solid fa-circle-left"></i></span>
+            <span class="visually-hidden">Previous</span>
         </button>
 
         <button class="store-next" type="button" data-bs-target="#storeCarousel" data-bs-slide="next">
-          <span class="store-next-icon" aria-hidden="true"><i class="fa-solid fa-circle-right"></i></</span>
-          <span class="visually-hidden">Next</span>
+            <span class="store-next-icon" aria-hidden="true"><i class="fa-solid fa-circle-right"></i></span>
+            <span class="visually-hidden">Next</span>
         </button>
     </div>
-</div>
 
 
 
@@ -57,7 +49,7 @@
 
         <div class="col-md-15">
 
-            <h3 class="heading-1">Today's Top Trending Coupons & Voucher Codes</h3></div>
+            <h3 class="heading-2">Today's Top Trending Coupons & Voucher Codes</h3></div>
             <hr class="hr-line">
 <div class="row">
     @foreach ($Coupons as $coupon)
@@ -74,10 +66,11 @@
                     <span class="no-image-placeholder">No Logo Available</span>
                     @endif
                 </div>
+                <span>{{ $coupon->store }}</span>
                 <h5 class="font-italic font-weight-20 ">{{ $coupon->name }}</h5>
 
                 <p class="card-name ">{{ $coupon->description }}</p>
-           <p class="coupon-created-at">{{ $coupon->created_at->format('M d, Y') }}</p>
+           <span class="coupon-created-at">Ending Date:    <strong>{{ $coupon->ending_date }}</strong></span>
 
 
 
@@ -101,9 +94,7 @@
             </div>
         </div>
     </div>
-    @if (($loop->index + 1) % 3 == 0)
-    <div class="w-100"></div>
-    @endif
+
     @endforeach
 </div>
 
@@ -153,7 +144,7 @@
 
 
 <div class="col-12">
-  <h2 class="fw-bold home_ts_h2 text-center">Shopping Hacks & Savings Tips & Tricks</h2>
+  <h2 class="heading-1">Shopping Hacks & Savings Tips & Tricks</h2>
 </div>
 
 
@@ -252,33 +243,9 @@
     </div>
 </div>
 
-</div></div>
-
-</div></div>
+</div>
 
 
-<script>
- $(document).ready(function(){
 
-$('#itemslider').carousel({ interval: 3000 });
-
-$('.carousel-showmanymoveone .item').each(function(){
-var itemToClone = $(this);
-
-for (var i=1;i<6;i++) {
-itemToClone = itemToClone.next();
-
-if (!itemToClone.length) {
-itemToClone = $(this).siblings(':first');
-}
-
-itemToClone.children(':first-child').clone()
-.addClass("cloneditem-"+(i))
-.appendTo($(this));
-}
-});
-});
-
-</script>
 
 @endsection

@@ -20,86 +20,10 @@ header("X-Robots-Tag:index, follow");
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="{{ asset('bootstrap-4.6.2-dist/css/bootstrap.min.css') }}">
   <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ asset('cssfile/blog.css') }}">
 
 
 
-  <style>
-
-    .blog-post {
-      background-color: #fff;
-      margin-bottom: 30px;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-    .blog-post:hover {
-      transform: translateY(-5px);
-    }
-    .blog-post img {
-      max-width: 100%;
-      height: auto;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
-    }
-    .blog-post .post-content {
-      padding: 20px;
-    }
-    .blog-post .post-content h2 {
-      color: #333;
-      margin-bottom: 10px;
-    }
-    .blog-post .post-content p {
-      color: #666;
-      margin-bottom: 20px;
-    }
-    .btn-read-more {
-      background-color: #343a40;
-      color: #fff;
-      border: none;
-      padding: 8px 20px;
-      border-radius: 20px;
-      text-transform: uppercase;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
-    .btn-read-more:hover {
-      background-color: #23272b;
-    }
-    .sidebar {
-      background-color: #343a40;
-      color: #fff;
-      padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    .sidebar h3 {
-      color: #fff;
-      margin-bottom: 20px;
-    }
-    .sidebar ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    .sidebar li {
-      margin-bottom: 10px;
-    }
-    .sidebar a {
-      color: #fff;
-      text-decoration: none;
-    }
-    .sidebar a:hover {
-      color: #ccc;
-    }
-    .img{
-        width: 250px;
-        height: 200;
-        border-radius:5%;
-    }
-
-
-
-
-  </style>
 </head>
 <body>
 

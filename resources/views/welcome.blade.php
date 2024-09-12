@@ -1,3 +1,6 @@
+<?php
+header("X-Robots-Tag:index, follow");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,51 +21,18 @@
     <link rel="stylesheet" href="{{ asset('cssfile/home.css') }}">
     <link rel="stylesheet" href="{{asset('cssfile/welcome.css')}}">
 
-    <style>
 
-  .slider-img {
-    padding: 15px;
-    width: 100%;
-    flex: 1;
-    border: 4px solid transparent; /* Transparent border for gradient effect */
-    border-radius: 16px;
-    height: 500px;
-    max-height: 600px;
-
-    /* Gradient border effect */
-    background: linear-gradient(to right, #da46d2, #d483e9); /* Border gradient */
-    background-clip: padding-box; /* Clips gradient to just the border */
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Add depth with shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
-}
-
-
-
-
-  .custom-indicators li {
-    background-color:white;
-    border-radius: 50%;
-    width: 18px;
-    height: 18px;
-}
-
-.custom-indicators li.active {
-    background-color: #333;
-}
-
-
-    </style>
 </head>
 <body>
 
     <x-navbar/>
 
 
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+    <div id="carouselExampleControls" class="carousel slide carousel-container" data-bs-ride="carousel">
+        <!-- Carousel Indicators -->
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <div class="d-flex align-items-center slider-content">
-
                     <img src="{{ asset('images/caraosel-1.png.jpeg') }}" class="d-block w-100 slider-img" alt="...">
                 </div>
             </div>
@@ -76,16 +46,26 @@
                 <img src="{{ asset('images/caraosel-4.jpeg') }}" class="d-block w-100 slider-img" alt="...">
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <ol class="custom-indicators">
+            <li data-bs-target="#carouselExampleControls" data-bs-slide-to="0" class="active"></li>
+            <li data-bs-target="#carouselExampleControls" data-bs-slide-to="1"></li>
+            <li data-bs-target="#carouselExampleControls" data-bs-slide-to="2"></li>
+            <li data-bs-target="#carouselExampleControls" data-bs-slide-to="3"></li>
+        </ol>
+        <!-- Previous Button -->
+        <button class="slider-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="slider-prev-icon" aria-hidden="true"><i class="fa-solid fa-circle-left"></i></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+
+        <!-- Next Button -->
+        <button class="slider-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="slider-next-icon" aria-hidden="true"><i class="fa-solid fa-circle-right"></i></span>
             <span class="visually-hidden">Next</span>
         </button>
     </div>
 
+<br>
 
       {{-- Main Content Here --}}
       @yield('main-content')
