@@ -91,9 +91,29 @@
                     <div class="col-6">
                         <div class="card">
                             <div class="card-body">
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="name">Top Store <span class="text-danger">*</span></label>
                                     <input type="number" class="form-control" name="top_store" id="top_store"  min="0"  >
+                                </div> --}}
+                                <div class="form-group">
+                                    <label for="top_store">Top Coupons Code <span class="text-danger">*</span></label><br>
+                                    <input type="radio" name="top_store" id="top_0" value="0" onclick="updateTopCoupons(0)">
+                                    <label for="top_0">0</label>
+        
+                                    <input type="radio" name="top_store" id="top_1" value="1" onclick="updateTopCoupons(1)">
+                                    <label for="top_1">1</label>
+        
+                                    <input type="radio" name="top_store" id="top_2" value="2" onclick="updateTopCoupons(2)">
+                                    <label for="top_2">2</label>
+{{--         
+                                    <input type="radio" name="top_store" id="top_3" value="3" onclick="updateTopCoupons(3)">
+                                    <label for="top_3">3</label>
+        
+                                    <input type="radio" name="top_store" id="top_4" value="4" onclick="updateTopCoupons(4)">
+                                    <label for="top_4">4</label>
+        
+                                    <input type="radio" name="top_store" id="top_5" value="5" onclick="updateTopCoupons(5)">
+                                    <label for="top_5">5</label> --}}
                                 </div>
                            <div class="form-group">
     <label for="status">Status <span class="text-danger">*</span></label><br>
