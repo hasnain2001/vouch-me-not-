@@ -53,47 +53,50 @@
             <hr class="hr-line">
 <div class="row">
     @foreach ($Coupons as $coupon)
-    <div class="col-md-4 mb-5">
-        <div class="card coupon-card">
-            <div class="cardi">
-                <div class="store-logo">
-                    @php
-                    $store = App\Models\Stores::where('slug', $coupon->store)->first();
-                    @endphp
-                    @if ($store && $store->store_image)
-                    <img src="{{ asset('uploads/stores/' . $store->store_image) }}" class="store-image" alt="{{ $store->name }} Logo" >
-                    @else
-                    <span class="no-image-placeholder">No Logo Available</span>
-                    @endif
-                </div>
+<div class="col-md-4 mb-5">
+    <div class="card coupon-card h-100 d-flex flex-column">
+        <div class="cardi flex-grow-1 d-flex flex-column">
+            <div class="store-logo">
+                @php
+                $store = App\Models\Stores::where('slug', $coupon->store)->first();
+                @endphp
+                @if ($store && $store->store_image)
+                <img src="{{ asset('uploads/stores/' . $store->store_image) }}" class="store-image" alt="{{ $store->name }} Logo" >
+                @else
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-image" viewBox="0 0 16 16">
+                    <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+                    <path d="M1.5 2A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2zm13 1a.5.5 0 0 1 .5.5v6l-3.775-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12v.54L1 12.5v-9a.5.5 0 0 1 .5-.5z"/>
+                  </svg>
                 <span>{{ $coupon->store }}</span>
-                <h5 class="font-italic font-weight-20 ">{{ $coupon->name }}</h5>
+                @endif
+            </div>
+            <br>
 
-                <p class="card-name ">{{ $coupon->description }}</p>
-           <span class="coupon-created-at">Ending Date:    <strong>{{ $coupon->ending_date }}</strong></span>
+            <h5 class="font-italic font-weight-20">{{ $coupon->name }}</h5>
 
+            <p class="card-name ">{{ $coupon->description }}</p>
+            
+            <span class="coupon-created-at">Ending Date: <strong>{{ $coupon->ending_date }}</strong></span>
 
-
-
-                <div class="coupon-buttons">
-                    @if ($coupon->code)
+            <div class="coupon-buttons d-grid gap-2 mt-auto">
+                @if ($coupon->code)
                     <a href="#" class="btnhome" onclick="openCouponInNewTab('{{ $coupon->destination_url }}', '{{ $coupon->id }}')">Get Code</a>
-                    @else
-                    <a href="{{ $coupon->destination_url }}" class="btnhome text-decoration-none" target="_blank">Get Deal</a>
-                    @endif
-                    @if ($store)
+                @else
+                    <a href="{{ $coupon->destination_url }}" class="btnhome" target="_blank">Get Deal</a>
+                @endif
+                @if ($store)
                     @php
-
-                           $storeUrl = $store->slug
-                    ? route('store_details', ['slug' => Str::slug($store->slug)])
-                    : '#';
-            @endphp
-                    <a href="{{ $storeUrl }}"  class="btnhome">Visit Store</a>
-                    @endif
-                </div>
+                        $storeUrl = $store->slug
+                            ? route('store_details', ['slug' => Str::slug($store->slug)])
+                            : '#';
+                    @endphp
+                    <a href="{{ $storeUrl }}" class="btnhome">Visit Store</a>
+                @endif
             </div>
         </div>
     </div>
+</div>
+
 
     @endforeach
 </div>

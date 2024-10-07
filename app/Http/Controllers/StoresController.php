@@ -65,28 +65,28 @@ class StoresController extends Controller
         $file->move(public_path('uploads/stores/'), $storeImage);
 
         // Ensure that the file has been saved before trying to read it
-        if (file_exists($filePath)) {
-        // Use Imagick to create a new image instance
-        $image = ImageManager::imagick()->read($filePath);
+        // if (file_exists($filePath)) {
+        // // Use Imagick to create a new image instance
+        // $image = ImageManager::imagick()->read($filePath);
 
-        // Resize the image to 300x200 pixels
-        $image->resize(300, 200);
+        // // Resize the image to 300x200 pixels
+        // $image->resize(300, 200);
 
-        // Optionally, resize only the height to 200 pixels
-        $image->resize(null, 200, function ($constraint) {
-        $constraint->aspectRatio();
-        });
+        // // Optionally, resize only the height to 200 pixels
+        // $image->resize(null, 200, function ($constraint) {
+        // $constraint->aspectRatio();
+        // });
 
-        // Optimize the image
-        $optimizer = OptimizerChainFactory::create();
-        $optimizer->optimize($filePath);
+        // // Optimize the image
+        // $optimizer = OptimizerChainFactory::create();
+        // $optimizer->optimize($filePath);
 
-        // Save the resized and optimized image
-        $image->save($filePath);
-        }
-        else{
-        return redirect()->back()->with('not found');
-        }
+        // // Save the resized and optimized image
+        // $image->save($filePath);
+        // }
+        // else{
+        // return redirect()->back()->with('not found');
+        // }
         }
 
         // Create a new store record
@@ -157,26 +157,26 @@ class StoresController extends Controller
         // Save the file to the specified location
         $file->move(public_path('uploads/stores/'), $storeImage);
 
-        // Ensure that the file has been saved before trying to read it
-        if (file_exists($filePath)) {
-            // Use Imagick to create a new image instance
-            $image = ImageManager::imagick()->read($filePath);
+        // // Ensure that the file has been saved before trying to read it
+        // if (file_exists($filePath)) {
+        //     // Use Imagick to create a new image instance
+        //     $image = ImageManager::imagick()->read($filePath);
 
-            // Resize the image to 300x200 pixels
-            $image->resize(300, 200);
+        //     // Resize the image to 300x200 pixels
+        //     $image->resize(300, 200);
 
-            // Optionally, resize only the height to 200 pixels
-            $image->resize(null, 200, function ($constraint) {
-                $constraint->aspectRatio();
-            });
+        //     // Optionally, resize only the height to 200 pixels
+        //     $image->resize(null, 200, function ($constraint) {
+        //         $constraint->aspectRatio();
+        //     });
 
-            // Optimize the image
-            $optimizer = OptimizerChainFactory::create();
-            $optimizer->optimize($filePath);
+        //     // Optimize the image
+        //     $optimizer = OptimizerChainFactory::create();
+        //     $optimizer->optimize($filePath);
 
-            // Save the resized and optimized image
-            $image->save($filePath);
-        }
+        //     // Save the resized and optimized image
+        //     $image->save($filePath);
+        // }
         }
 
         // Update the store record

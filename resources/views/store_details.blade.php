@@ -165,6 +165,14 @@ header("X-Robots-Tag:index, follow");
     transform: scale(1.05);
     box-shadow: 0 0 15px rgba(124, 58, 199, 0.7), 0 0 30px rgba(124, 58, 199, 0.5);
 }
+.ending-date{
+    font-size: 10px;
+    color: rgb(184, 177, 177);
+}
+.coupon-description{
+    font-size: 15px;
+    color: rgb(134, 123, 123);
+}
 
     </style>
 </head>
@@ -217,15 +225,16 @@ header("X-Robots-Tag:index, follow");
                                 @else
                                 <h5 style="margin-top: 0;">Store name not available</h5>
                                 @endif
-                                <div class="rating-stars text-warning">
+                                <div class="rating-stars text-warning text-center">
                                     <i class="fas fa-star" data-rating="1"></i>
                                     <i class="fas fa-star" data-rating="2"></i>
                                     <i class="fas fa-star" data-rating="3"></i>
                                     <i class="fas fa-star" data-rating="4"></i>
                                     <i class="fas fa-star text-dark" data-rating="5"></i>
                                 </div>
+                                    <!--<a href="{{ $store->url }}" target="_blank" class="get ">Visit Website</a>-->
                                 @if ($store->description)
-                                <a href="{{ $store->url }}" target="_blank" class="get ">Visit Website</a>
+                            
                                 <p class="mt-2 mx-2 store_detail_description d-none d-md-block">{!! $store->description !!}</p>
                                 @endif
                             </div>
@@ -247,16 +256,13 @@ header("X-Robots-Tag:index, follow");
                     <br>
                     <p class="coupon-description des-font">{{ $coupon->description }}</p>
                      <hr style="border:2px black dotted;">
-                     @php
-                     // Get the current time in Karachi timezone
-                     $now = \Carbon\Carbon::now('Asia/Karachi');
-                     // Convert coupon's created_at to Karachi timezone
-                     $created_at = \Carbon\Carbon::parse($coupon->ending_date)->timezone('Asia/Karachi');
-                 @endphp
+                 
 
-<p class="text-right" style="color: {{ $created_at->isPast() ? 'red' : 'inherit' }};">
-    Ending Date:{{ $created_at->format('d M, Y') }}
+<p class="ending-date" style="color: {{ \Carbon\Carbon::parse($coupon->ending_date)->isPast() ? 'red' : 'inherit' }};">
+    Ending Date: {{ \Carbon\Carbon::parse($coupon->ending_date)->format('d M, Y') }}
 </p>
+
+
                 </div>
                 <div class="coupon-action text-center">
                     @if ($coupon->code)
