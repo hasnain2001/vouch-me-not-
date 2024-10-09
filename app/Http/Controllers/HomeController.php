@@ -155,7 +155,7 @@ public function topStores(Request $request)
         }
 
         // Fetch related coupons and stores
-        $stores = Stores::where('category', $title)->get();
+        $stores = Stores::where('category', $title)->paginate(10);
 
 
         return view('related_categories', compact('category', 'stores' ));

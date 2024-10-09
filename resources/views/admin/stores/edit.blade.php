@@ -34,6 +34,16 @@
                 <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" aria-label="Close" style="background: none; border: none; font-size: 1.5em; color: #856404;"></button>
             </div>
         @endif
+        @if ($errors->any())
+        <div  class="alert alert-danger" >
+            <strong>Validation error(s):</strong>
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
 
             <form name="UpdateStore" id="UpdateStore" method="POST" enctype="multipart/form-data" action="{{ route('admin.store.update', $stores->id) }}">
                 @csrf

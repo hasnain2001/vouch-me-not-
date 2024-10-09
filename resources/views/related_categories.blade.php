@@ -112,7 +112,7 @@ transform: scale(1.05);
 
 
 <div class="container">
-    <p class="h5 m-0">Total stores: <span class="fw-bold">{{ $stores->count() }}</span></p>
+    <p class="h5 m-0">Total stores: <span class="fw-bold">{{ $stores->total() }}</span></p>
 </div>
 <div class="container">
     <div class="card-list">
@@ -148,7 +148,7 @@ transform: scale(1.05);
         @endif
     </div>
 </div>
-
+{{ $stores->links('vendor.pagination.bootstrap-5') }}
 
     <x-footer/>
 
