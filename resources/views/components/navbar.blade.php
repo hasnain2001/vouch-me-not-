@@ -18,7 +18,7 @@
   max-width: 1200px; /* Adjust as per your screen size */
 }
 
-          .navbar {
+          .nav {
             background-image: url('/images/purple1.jpeg');
             background-size: cover;
             background-position: center;
@@ -162,7 +162,7 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="nav navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ url('/') }}">
                 <img src="/images/logo1.png" class="logo-img" alt="VouchMeNot">

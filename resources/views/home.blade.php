@@ -20,7 +20,7 @@
                                     : '#';
                                 @endphp
                                 <a href="{{ $storeUrl }}" class="text-dark text-decoration-none">
-                                    <img class="img-fluid mb-2" src="{{ asset('uploads/stores/' . $storeItem->store_image) }}" alt="{{ $storeItem->name }}" loading="lazy" />
+                                    <img class="mb-2" src="{{ asset('uploads/stores/' . $storeItem->store_image) }}" alt="{{ $storeItem->name }}" loading="lazy"  height="150" width="200"/>
                                     <span class="fw-bold d-block text-center">{{ $storeItem->name }}</span>
                                 </a>
                             </div>

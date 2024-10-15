@@ -39,7 +39,7 @@ Route::middleware('guest:teacher')->prefix('employe')->name('employe.')->group(f
 Route::middleware('auth:teacher')->prefix('employe')->name('employe.')->group(function () {
 
     Route::get('/dashboard', function () {
-        return view('teacher.dashboard');
+        return view('employe.dashboard');
     })->middleware([ 'verified'])->name('dashboard');
     
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

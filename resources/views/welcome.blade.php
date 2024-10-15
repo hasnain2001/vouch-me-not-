@@ -26,6 +26,81 @@ header("X-Robots-Tag:index, follow");
 <body>
 
     <x-navbar/>
+    @if (Route::has('login'))
+    <nav class="navbar navbar-expand-lg navbar-light bg-white p-3">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
+                <ul class="navbar-nav">
+                    @auth('web')
+                    <li class="nav-item">
+                        <a href="{{ url('/dashboard') }}" class="nav-link btn btn-outline-primary mx-2">
+                            Dashboard
+                        </a>
+                    </li>
+                    @else
+                    <li class="nav-item">
+                        <a href="{{ route('login') }}" class="nav-link btn btn-outline-secondary mx-2">
+                            Log in
+                        </a>
+                    </li>
+                    @if (Route::has('register'))
+                    <li class="nav-item">
+                        <a href="{{ route('register') }}" class="nav-link btn btn-outline-success mx-2">
+                            Register
+                        </a>
+                    </li>
+                    @endif
+                    @endauth
+
+                    @auth('admin')
+                    <li class="nav-item">
+                        <a href="{{ url('/admin/dashboard') }}" class="nav-link btn btn-outline-primary mx-2">
+                            Admin Dashboard
+                        </a>
+                    </li>
+                    @else
+                    <li class="nav-item">
+                        <a href="{{ route('admin.login') }}" class="nav-link btn btn-outline-secondary mx-2">
+                            Admin Log in
+                        </a>
+                    </li>
+                    @if (Route::has('admin.register'))
+                    <li class="nav-item">
+                        <a href="{{ route('admin.register') }}" class="nav-link btn btn-outline-success mx-2">
+                            Admin Register
+                        </a>
+                    </li>
+                    @endif
+                    @endauth
+
+                    @auth('teacher')
+                    <li class="nav-item">
+                        <a href="{{ url('/employe/dashboard') }}" class="nav-link btn btn-outline-primary mx-2">
+                            Employee Dashboard
+                        </a>
+                    </li>
+                    @else
+                    <li class="nav-item">
+                        <a href="{{ route('employe.login') }}" class="nav-link btn btn-outline-secondary mx-2">
+                            Employee Log in
+                        </a>
+                    </li>
+                    @if (Route::has('employe.register'))
+                    <li class="nav-item">
+                        <a href="{{ route('employe.register') }}" class="nav-link btn btn-outline-success mx-2">
+                            Employee Register
+                        </a>
+                    </li>
+                    @endif
+                    @endauth
+                </ul>
+            </div>
+        </div>
+    </nav>
+    @endif
 
     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <!-- Carousel Indicators -->
@@ -39,16 +114,16 @@ header("X-Robots-Tag:index, follow");
         <!-- Carousel Items -->
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="{{ asset('images/caraosel-1.png.jpeg') }}" class="d-block w-100 slider-img" alt="Slide 1">
+                <img src="{{ asset('images/slider.png') }}" class="d-block w-100 slider-img img-thumbnail" alt="Slide 1">
             </div>
             <div class="carousel-item">
-                <img src="{{ asset('images/caraosel-2.png.jpeg') }}" class="d-block w-100 slider-img" alt="Slide 2">
+                <img src="{{ asset('images/caraosel-2.png.jpeg') }}" class="d-block w-100 slider-img img-thumbnail" alt="Slide 2">
             </div>
             <div class="carousel-item">
-                <img src="{{ asset('images/caraosel-3.jpeg') }}" class="d-block w-100 slider-img" alt="Slide 3">
+                <img src="{{ asset('images/caraosel-3.jpeg') }}" class="d-block w-100 slider-img img-thumbnail" alt="Slide 3">
             </div>
             <div class="carousel-item">
-                <img src="{{ asset('images/caraosel-4.jpeg') }}" class="d-block w-100 slider-img" alt="Slide 4">
+                <img src="{{ asset('images/caraosel-4.jpeg') }}" class="d-block w-100 slider-img img-thumbnail" alt="Slide 4">
             </div>
         </div>
     

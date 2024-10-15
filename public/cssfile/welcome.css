@@ -6,7 +6,7 @@
     border-radius: 16px;
     height: 500px;
     max-height: 600px;
-    background: linear-gradient(to right, rgba(141, 19, 135, 0.8), rgba(222, 172, 235, 0.8));
+    /* background: linear-gradient(to right, rgba(141, 19, 135, 0.8), rgba(222, 172, 235, 0.8)); */
     background-clip: padding-box;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s, box-shadow 0.3s;

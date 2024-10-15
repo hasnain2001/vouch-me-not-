@@ -19,7 +19,7 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('teacher.auth.register');
+        return view('employe.auth.register');
     }
 
     /**
@@ -45,6 +45,6 @@ class RegisteredUserController extends Controller
 
         Auth::guard('teacher')->login($Teacher);
 
-        return redirect(route('teacher.dashboard', absolute: false));
+        return redirect(route('employe.dashboard', absolute: false));
     }
 }
